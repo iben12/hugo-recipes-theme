@@ -6,6 +6,7 @@ headline = ''
 description = ''
 author = ''
 categories = []
+tags = []
 prepTime = ''
 cookTime = ''
 servings = ''

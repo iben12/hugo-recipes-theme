@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Roast on The Sunday Table</title>
+		<link>http://localhost:1313/tags/roast/</link>
+		<description>Recent content in Roast on The Sunday Table</description>
+		<generator>Hugo</generator>
+		<language>hu-HU</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 15 Jan 2023 09:00:00 -0700</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/roast/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Lemon and herb roast chicken</title>
+				<link>http://localhost:1313/posts/lemon-herb-chicken/</link>
+				<pubDate>Sun, 15 Jan 2023 09:00:00 -0700</pubDate>
+				<guid>http://localhost:1313/posts/lemon-herb-chicken/</guid>
+				<description>&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Heat the oven to 200°C / 400°F. Pat the chicken dry and season it generously inside and out.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Put half the herbs, the lemon halves, and garlic inside the cavity. Rub the skin with olive oil and scatter the remaining herbs over the chicken and potatoes.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Arrange the potatoes in a roasting pan and sit the chicken on top. Roast for 1 hour 15 minutes, turning the potatoes once, until the chicken is deeply golden and cooked through.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+			</item>
+	</channel>
+</rss>

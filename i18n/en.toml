@@ -99,23 +99,26 @@ other = "A little tip"
 [categories_aria_label]
 other = "Categories"
 
+[tags_aria_label]
+other = "Tags"
+
 [search_eyebrow]
 other = "A good thing to make"
 
 [search_intro]
-other = "Search by dish, ingredient, or category."
+other = "Search by dish, ingredient, category, or tag."
 
 [search_label]
 other = "Search recipes"
 
 [search_placeholder]
-other = "Try “tomato”, “chicken”, or “sweets”"
+other = "Try “tomato”, “chicken”, “sweets”, or “weeknight”"
 
 [search_button]
 other = "Search"
 
 [search_prompt]
-other = "Enter a dish, ingredient, or category to get started."
+other = "Enter a dish, ingredient, category, or tag to get started."
 
 [search_no_results]
 other = "No recipes found for “{query}”. Try a different search."

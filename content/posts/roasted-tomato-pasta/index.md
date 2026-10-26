@@ -6,6 +6,7 @@ headline = 'Jammy tomatoes, garlic, and a little pasta water make a weeknight sa
 description = "Roasting coaxes out the tomatoes' sweetness and makes a rich sauce with almost no hands-on time. A few torn basil leaves bring everything to life."
 author = 'The Sunday Table'
 categories = ['Main dishes', 'Vegetarian']
+tags = ['weeknight', 'pasta']
 prepTime = '10 minutes'
 cookTime = '45 minutes'
 servings = '4'

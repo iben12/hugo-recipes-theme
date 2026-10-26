@@ -8,6 +8,7 @@
       "author" (.Params.author | default "")
       "url" .RelPermalink
       "categories" (.Params.categories | default slice)
+      "tags" (.Params.tags | default slice)
       "ingredients" (.Params.ingredients | default slice)
     ) }}
   {{ end }}

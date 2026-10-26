@@ -6,6 +6,7 @@ headline = 'A golden, lemony Sunday roast with crisp potatoes and plenty of fres
 description = 'The kind of relaxed, generous roast that fills the kitchen with the smell of lemon and rosemary. Put the potatoes in the same pan and let the oven do the hard work.'
 author = 'The Sunday Table'
 categories = ['Main dishes']
+tags = ['roast', 'Sunday lunch']
 prepTime = '20 minutes'
 cookTime = '1 hour 15 minutes'
 servings = '4'

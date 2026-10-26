@@ -57,6 +57,7 @@ headline = 'A soft, olive-oil-rich loaf with a crisp, herby crust.'
 description = 'A simple, fragrant loaf to serve alongside soup or share warm from the oven.'
 author = 'Your name'
 categories = ['Baking', 'Vegetarian']
+tags = ['weekend', 'bread']
 prepTime = '20 minutes'
 cookTime = '25 minutes'
 servings = '8'
@@ -98,6 +99,7 @@ ingredients, and preparation instructions.
 | `headline` | Recommended | Short summary shown on cards and recipe pages |
 | `author` | Recommended | Recipe author, shown as a byline |
 | `categories` | Recommended | One or more category names, such as `Main dishes` or `Sweets` |
+| `tags` | Optional | One or more descriptive tags, shown on recipe pages and included in search |
 | `ingredients` | Recommended | Array of ingredient strings |
 | `description` | Optional | Short introductory paragraph for the recipe page |
 | `cover` | Optional | Cover image filename in the recipe page bundle; defaults to `cover.jpg` |
@@ -108,7 +110,8 @@ ingredients, and preparation instructions.
 
 Recipes without a cover image display a styled placeholder on listing cards.
 Categories are generated from recipe `categories` fields using Hugo's
-`categories` taxonomy.
+`categories` taxonomy. Recipe `tags` link to their tag pages and are searchable
+alongside titles, categories, and ingredients.
 
 Preparation instructions are written as a numbered Markdown list in the recipe
 body. Add a `tip` shortcode between any two steps to show a highlighted note at
@@ -130,7 +133,7 @@ catalogs.
 ## Search
 
 The Search page is available from the main navigation at `/search/`. It searches
-recipe titles, headlines, author names, categories, and ingredients. Hugo
+recipe titles, headlines, author names, categories, tags, and ingredients. Hugo
 embeds a small index in the generated page; search runs in the browser and
 doesn't require an external service.
 

@@ -1,4 +1,4 @@
-/* ns-hugo-imp:/home/iben/coding/hugo-recipes-theme/themes/recipes/assets/css/components/header.css */
+/* ns-hugo-imp:/home/iben/coding/hugo-recipes-theme/assets/css/components/header.css */
 body > header {
   align-items: center;
   border-bottom: 1px solid var(--line);
@@ -48,7 +48,7 @@ nav a.active {
   }
 }
 
-/* ns-hugo-imp:/home/iben/coding/hugo-recipes-theme/themes/recipes/assets/css/components/footer.css */
+/* ns-hugo-imp:/home/iben/coding/hugo-recipes-theme/assets/css/components/footer.css */
 body > footer {
   align-items: center;
   border-top: 1px solid var(--line);

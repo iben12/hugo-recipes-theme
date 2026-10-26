@@ -54,7 +54,7 @@
     <header class="listing-intro">
       <p class="eyebrow">Ez jó lesz</p>
       <h1 id="search-heading">Find a recipe</h1>
-      <p class="listing-intro__copy">Keress ételre, hozzávalóra, kategóriára.</p>
+      <p class="listing-intro__copy">Keress ételre, hozzávalóra, kategóriára vagy címkére.</p>
     </header>
 
     <form class="recipe-search" role="search" action="/search/" method="get">
@@ -64,7 +64,7 @@
           id="recipe-search-input"
           name="q"
           type="search"
-          placeholder="Például “paradicsom”, “csirke”, or “süti”"
+          placeholder="Például “paradicsom”, “csirke”, “második” vagy “édes”"
           autocomplete="off"
           aria-describedby="recipe-search-status"
         >
@@ -73,11 +73,11 @@
     </form>
 
     <p class="recipe-search__status" id="recipe-search-status" role="status" aria-live="polite">
-      Írj be egy ételt, hozzávalót, kategóriát a kezdéshez.
+      Írj be egy ételt, hozzávalót, kategóriát vagy címkét a kezdéshez.
     </p>
     <div class="recipe-grid recipe-search__results" id="recipe-search-results"></div>
-    <script id="recipe-search-index" type="application/json">[{"author":"The Sunday Table","categories":["Breakfast","Sweets"],"headline":"Fluffy, bright pancakes for slow mornings and outdoor breakfasts.","ingredients":["200 g all-purpose flour","2 tbsp sugar","2 tsp baking powder","250 ml milk","1 large egg","Zest of 1 orange","2 tbsp melted butter, plus more for the pan","Maple syrup and seasonal berries, to serve"],"title":"Campfire citrus pancakes","url":"/posts/campfire-citrus-pancakes/"},{"author":"The Sunday Table","categories":["Main dishes","Vegetarian"],"headline":"Jammy tomatoes, garlic, and a little pasta water make a weeknight sauce worth lingering over.","ingredients":["800 g ripe cherry tomatoes","4 garlic cloves, thinly sliced","4 tbsp olive oil","400 g rigatoni or other short pasta","A pinch of chilli flakes","A handful of fresh basil leaves","50 g finely grated Parmesan, plus more to serve","Sea salt and black pepper"],"title":"Slow-roasted tomato pasta","url":"/posts/roasted-tomato-pasta/"},{"author":"The Sunday Table","categories":["Main dishes"],"headline":"A golden, lemony Sunday roast with crisp potatoes and plenty of fresh herbs.","ingredients":["1 whole chicken, about 1.6 kg","1 lemon, halved","4 garlic cloves, lightly crushed","3 tbsp olive oil","700 g waxy potatoes, cut into chunks","A small handful each of rosemary and thyme","Sea salt and freshly ground black pepper"],"title":"Lemon and herb roast chicken","url":"/posts/lemon-herb-chicken/"}]</script>
-    <script id="recipe-search-messages" type="application/json">{"byAuthor":"Szerző: {author}","categoryLabel":"Kategóriák","noResults":"Nincs találat a “{query}” kifejezésre. Próbálj valami mást.","oneResult":"{count} receptet találtam.","otherResults":"{count} receptet találtam.","prompt":"Írj be egy ételt, hozzávalót, kategóriát a kezdéshez."}</script>
+    <script id="recipe-search-index" type="application/json">[{"author":"The Sunday Table","categories":["Breakfast","Sweets"],"headline":"Fluffy, bright pancakes for slow mornings and outdoor breakfasts.","ingredients":["200 g all-purpose flour","2 tbsp sugar","2 tsp baking powder","250 ml milk","1 large egg","Zest of 1 orange","2 tbsp melted butter, plus more for the pan","Maple syrup and seasonal berries, to serve"],"tags":["breakfast","camping"],"title":"Campfire citrus pancakes","url":"/posts/campfire-citrus-pancakes/"},{"author":"The Sunday Table","categories":["Main dishes","Vegetarian"],"headline":"Jammy tomatoes, garlic, and a little pasta water make a weeknight sauce worth lingering over.","ingredients":["800 g ripe cherry tomatoes","4 garlic cloves, thinly sliced","4 tbsp olive oil","400 g rigatoni or other short pasta","A pinch of chilli flakes","A handful of fresh basil leaves","50 g finely grated Parmesan, plus more to serve","Sea salt and black pepper"],"tags":["weeknight","pasta"],"title":"Slow-roasted tomato pasta","url":"/posts/roasted-tomato-pasta/"},{"author":"The Sunday Table","categories":["Main dishes"],"headline":"A golden, lemony Sunday roast with crisp potatoes and plenty of fresh herbs.","ingredients":["1 whole chicken, about 1.6 kg","1 lemon, halved","4 garlic cloves, lightly crushed","3 tbsp olive oil","700 g waxy potatoes, cut into chunks","A small handful each of rosemary and thyme","Sea salt and freshly ground black pepper"],"tags":["roast","Sunday lunch"],"title":"Lemon and herb roast chicken","url":"/posts/lemon-herb-chicken/"}]</script>
+    <script id="recipe-search-messages" type="application/json">{"byAuthor":"Szerző: {author}","categoryLabel":"Kategóriák","noResults":"Nincs találat a “{query}” kifejezésre. Próbálj valami mást.","oneResult":"{count} receptet találtam.","otherResults":"{count} receptet találtam.","prompt":"Írj be egy ételt, hozzávalót, kategóriát vagy címkét a kezdéshez."}</script>
   </section>
 
   </main>

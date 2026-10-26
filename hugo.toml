@@ -9,6 +9,7 @@ title = 'The Sunday Table'
 
 [taxonomies]
   category = 'categories'
+  tag = 'tags'
 
 [menus]
   [[menus.main]]

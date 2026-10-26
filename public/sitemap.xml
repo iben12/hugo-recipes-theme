@@ -5,7 +5,13 @@
     <loc>http://localhost:1313/categories/breakfast/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/breakfast/</loc>
+    <lastmod>2023-03-15T11:00:00-07:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/campfire-citrus-pancakes/</loc>
+    <lastmod>2023-03-15T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/camping/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
@@ -14,7 +20,13 @@
     <loc>http://localhost:1313/categories/sweets/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2023-03-15T11:00:00-07:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/main-dishes/</loc>
+    <lastmod>2023-02-15T10:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/pasta/</loc>
     <lastmod>2023-02-15T10:00:00-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/roasted-tomato-pasta/</loc>
@@ -23,7 +35,16 @@
     <loc>http://localhost:1313/categories/vegetarian/</loc>
     <lastmod>2023-02-15T10:00:00-07:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/weeknight/</loc>
+    <lastmod>2023-02-15T10:00:00-07:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/lemon-herb-chicken/</loc>
+    <lastmod>2023-01-15T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/roast/</loc>
+    <lastmod>2023-01-15T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/sunday-lunch/</loc>
     <lastmod>2023-01-15T09:00:00-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>

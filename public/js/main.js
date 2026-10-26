@@ -23,6 +23,7 @@
           recipe.headline,
           recipe.author,
           ...recipe.categories,
+          ...recipe.tags,
           ...recipe.ingredients
         ].join(" "));
         return tokens.every((token) => searchableText.includes(token));

@@ -3,7 +3,8 @@
   <article class="recipe">
     <header class="recipe__header">
       <a class="back-link" href="{{ "posts/" | relURL }}">{{ T "back_to_recipes" }}</a>
-      {{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
+      {{ partial "terms.html" (dict "taxonomy" "categories" "page" . "label" (T "categories_aria_label")) }}
+      {{ partial "terms.html" (dict "taxonomy" "tags" "page" . "label" (T "tags_aria_label")) }}
       <h1>{{ .Title }}</h1>
       {{ with .Params.headline }}<p class="recipe__headline">{{ . }}</p>{{ end }}
       {{ with .Params.author }}<p class="recipe__author">{{ T "by_author" (dict "Author" .) }}</p>{{ end }}

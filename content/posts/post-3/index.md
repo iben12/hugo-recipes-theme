@@ -7,6 +7,7 @@ headline = 'Fluffy, bright pancakes for slow mornings and outdoor breakfasts.'
 description = "Orange zest gives these tender pancakes a little lift. They're equally good made at home or cooked outside on a cool morning."
 author = 'The Sunday Table'
 categories = ['Breakfast', 'Sweets']
+tags = ['breakfast', 'camping']
 prepTime = '10 minutes'
 cookTime = '20 minutes'
 servings = '4'

@@ -99,23 +99,26 @@ other = "Tipp"
 [categories_aria_label]
 other = "Kategóriák"
 
+[tags_aria_label]
+other = "Címkék"
+
 [search_eyebrow]
 other = "Ez jó lesz"
 
 [search_intro]
-other = "Keress ételre, hozzávalóra, kategóriára."
+other = "Keress ételre, hozzávalóra, kategóriára vagy címkére."
 
 [search_label]
 other = "Receptek keresése"
 
 [search_placeholder]
-other = "Például “paradicsom”, “csirke”, or “süti”"
+other = "Például “paradicsom”, “csirke”, “második” vagy “édes”"
 
 [search_button]
 other = "Keresés"
 
 [search_prompt]
-other = "Írj be egy ételt, hozzávalót, kategóriát a kezdéshez."
+other = "Írj be egy ételt, hozzávalót, kategóriát vagy címkét a kezdéshez."
 
 [search_no_results]
 other = "Nincs találat a “{query}” kifejezésre. Próbálj valami mást."
