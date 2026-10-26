@@ -4,6 +4,7 @@ slug = 'campfire-citrus-pancakes'
 date = 2023-03-15T11:00:00-07:00
 draft = false
 headline = 'Fluffy, bright pancakes for slow mornings and outdoor breakfasts.'
+description = "Orange zest gives these tender pancakes a little lift. They're equally good made at home or cooked outside on a cool morning."
 author = 'The Sunday Table'
 categories = ['Breakfast', 'Sweets']
 prepTime = '10 minutes'
@@ -19,13 +20,12 @@ ingredients = [
   '2 tbsp melted butter, plus more for the pan',
   'Maple syrup and seasonal berries, to serve',
 ]
-steps = [
-  'Whisk the flour, sugar, and baking powder together in a bowl.',
-  'In a second bowl, whisk the milk, egg, orange zest, and melted butter. Stir into the dry ingredients just until combined; a few small lumps are fine.',
-  'Warm a lightly buttered skillet over medium heat. Cook small ladlefuls of batter until bubbles appear on top, then flip and cook until golden.',
-  'Serve warm with maple syrup and berries.',
-]
 +++
 
-Orange zest gives these tender pancakes a little lift. They're equally good
-made at home or cooked outside on a cool morning.
+1. Whisk the flour, sugar, and baking powder together in a bowl.
+
+2. In a second bowl, whisk the milk, egg, orange zest, and melted butter. Stir into the dry ingredients just until combined; a few small lumps are fine.
+
+3. Warm a lightly buttered skillet over medium heat. Cook small ladlefuls of batter until bubbles appear on top, then flip and cook until golden.
+
+4. Serve warm with maple syrup and berries.

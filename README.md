@@ -54,6 +54,7 @@ title = 'Rosemary focaccia'
 date = 2026-10-26
 draft = false
 headline = 'A soft, olive-oil-rich loaf with a crisp, herby crust.'
+description = 'A simple, fragrant loaf to serve alongside soup or share warm from the oven.'
 author = 'Your name'
 categories = ['Baking', 'Vegetarian']
 prepTime = '20 minutes'
@@ -70,21 +71,24 @@ ingredients = [
   'A few sprigs of fresh rosemary',
   'Flaky salt, to finish',
 ]
-steps = [
-  'Mix the flour, yeast, and water until no dry patches remain. Cover and rest for 20 minutes.',
-  'Add the fine salt and olive oil. Knead until smooth, then cover and let rise until doubled.',
-  'Oil a baking pan, transfer the dough, and gently stretch it to fit. Let it rise again.',
-  'Heat the oven to 220°C / 425°F. Dimple the dough, top with rosemary and flaky salt, and bake until golden.',
-]
 +++
 
-This focaccia is lovely warm from the oven, dipped in olive oil or served
-alongside a bowl of soup.
+1. Mix the flour, yeast, and water until no dry patches remain. Cover and rest for 20 minutes.
+
+{{< tip >}}
+If the dough feels sticky, resist adding extra flour; the high hydration helps make the focaccia light and airy.
+{{< /tip >}}
+
+2. Add the fine salt and olive oil. Knead until smooth, then cover and let rise until doubled.
+
+3. Oil a baking pan, transfer the dough, and gently stretch it to fit. Let it rise again.
+
+4. Heat the oven to 220°C / 425°F. Dimple the dough, top with rosemary and flaky salt, and bake until golden.
 ```
 
 The title, headline, categories, and cover appear on recipe cards. The recipe
 page displays the author, optional timings and serving count, description,
-ingredients, and preparation steps.
+ingredients, and preparation instructions.
 
 ### Recipe fields
 
@@ -95,7 +99,7 @@ ingredients, and preparation steps.
 | `author` | Recommended | Recipe author, shown as a byline |
 | `categories` | Recommended | One or more category names, such as `Main dishes` or `Sweets` |
 | `ingredients` | Recommended | Array of ingredient strings |
-| `steps` | Recommended | Array of preparation instructions, displayed as a numbered list |
+| `description` | Optional | Short introductory paragraph for the recipe page |
 | `cover` | Optional | Cover image filename in the recipe page bundle; defaults to `cover.jpg` |
 | `coverAlt` | Optional | Accessible alternative text for the cover image |
 | `prepTime` | Optional | Preparation time |
@@ -105,6 +109,23 @@ ingredients, and preparation steps.
 Recipes without a cover image display a styled placeholder on listing cards.
 Categories are generated from recipe `categories` fields using Hugo's
 `categories` taxonomy.
+
+Preparation instructions are written as a numbered Markdown list in the recipe
+body. Add a `tip` shortcode between any two steps to show a highlighted note at
+that point:
+
+```md
+1. Roast the vegetables until tender.
+
+{{< tip >}}
+Cut the vegetables into similar-sized pieces so they cook evenly.
+{{< /tip >}}
+
+2. Toss with the herbs and serve warm.
+```
+
+The tip label is localized through the `tip` entry in the language
+catalogs.
 
 ## Search
 

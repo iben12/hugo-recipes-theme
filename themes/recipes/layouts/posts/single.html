@@ -22,7 +22,7 @@
       </figure>
     {{ end }}
 
-    {{ with .Content }}<div class="recipe__intro">{{ . }}</div>{{ end }}
+    {{ with .Params.description }}<p class="recipe__intro">{{ . }}</p>{{ end }}
 
     <div class="recipe__details">
       {{ with .Params.ingredients }}
@@ -34,13 +34,11 @@
           </ul>
         </section>
       {{ end }}
-      {{ with .Params.steps }}
+      {{ with .Content }}
         <section class="recipe__steps" aria-labelledby="method-heading">
           <p class="eyebrow">{{ T "preparation_eyebrow" }}</p>
           <h2 id="method-heading">{{ T "preparation" }}</h2>
-          <ol>
-            {{ range . }}<li>{{ . }}</li>{{ end }}
-          </ol>
+          <div class="recipe__instructions">{{ . }}</div>
         </section>
       {{ end }}
     </div>

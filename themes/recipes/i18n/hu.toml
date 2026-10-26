@@ -93,6 +93,9 @@ other = "Kezdjünk főzni"
 [preparation]
 other = "Elékészítés"
 
+[tip]
+other = "Tipp"
+
 [categories_aria_label]
 other = "Kategóriák"
 

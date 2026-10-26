@@ -93,6 +93,9 @@ other = "Let's get cooking"
 [preparation]
 other = "Preparation"
 
+[tip]
+other = "A little tip"
+
 [categories_aria_label]
 other = "Categories"
 

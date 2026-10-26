@@ -415,6 +415,60 @@ h2 {
   margin-bottom: 1.25rem;
 }
 
+.recipe__instructions {
+  counter-reset: preparation-step;
+}
+
+.recipe__instructions > p:first-child {
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+}
+
+.recipe__instructions ol {
+  counter-reset: none;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.6rem;
+}
+
+.recipe__instructions li {
+  counter-increment: preparation-step;
+  margin-bottom: 0.8rem;
+  padding-left: 0.2rem;
+  position: relative;
+}
+
+.recipe__instructions li::before {
+  color: var(--tomato);
+  content: counter(preparation-step) ".";
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  left: -1.5rem;
+  position: absolute;
+}
+
+.recipe-tip {
+  background: #f2ede1;
+  border-left: 4px solid var(--tomato);
+  color: var(--ink);
+  margin: 1.1rem 0 1.5rem;
+  padding: 1rem 1.2rem;
+}
+
+.recipe-tip__label {
+  color: var(--tomato-dark);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.3rem;
+  text-transform: uppercase;
+}
+
+.recipe-tip__content > :last-child {
+  margin-bottom: 0;
+}
+
 .recipe__ingredients ul,
 .recipe__steps ol {
   margin: 0;
