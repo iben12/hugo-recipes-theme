@@ -1,0 +1,42 @@
+{{ define "main" }}
+  <section class="home-intro">
+    <p class="eyebrow">{{ T "home_eyebrow" }}</p>
+    <h1>{{ .Title }}</h1>
+    <div class="home-intro__copy">{{ .Content }}</div>
+  </section>
+
+  {{ $recipes := where site.RegularPages "Section" "posts" }}
+  <section class="recipe-list" aria-labelledby="latest-recipes">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">{{ T "from_our_kitchen" }}</p>
+        <h2 id="latest-recipes">{{ T "recipes_to_return_to" }}</h2>
+      </div>
+      <a class="text-link" href="{{ "posts/" | relURL }}">{{ T "all_recipes" }} <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="recipe-grid">
+      {{ range $recipes }}
+        {{ partial "recipe-card.html" . }}
+      {{ else }}
+        <p class="empty-state">{{ T "recipes_coming_soon" }}</p>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ with site.Taxonomies.categories }}
+    <section class="category-strip" aria-labelledby="browse-categories">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">{{ T "find_your_next_favorite" }}</p>
+          <h2 id="browse-categories">{{ T "browse_by_category" }}</h2>
+        </div>
+        <a class="text-link" href="{{ "categories/" | relURL }}">{{ T "all_categories" }} <span aria-hidden="true">→</span></a>
+      </div>
+      <ul class="category-links">
+        {{ range .Alphabetical }}
+          <li><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <span>{{ .Count }}</span></a></li>
+        {{ end }}
+      </ul>
+    </section>
+  {{ end }}
+{{ end }}

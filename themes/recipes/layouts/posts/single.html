@@ -1,0 +1,48 @@
+{{ define "main" }}
+  {{ $cover := .Resources.GetMatch (default "cover.*" .Params.cover) }}
+  <article class="recipe">
+    <header class="recipe__header">
+      <a class="back-link" href="{{ "posts/" | relURL }}">{{ T "back_to_recipes" }}</a>
+      {{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.headline }}<p class="recipe__headline">{{ . }}</p>{{ end }}
+      {{ with .Params.author }}<p class="recipe__author">{{ T "by_author" (dict "Author" .) }}</p>{{ end }}
+      {{ if or .Params.prepTime .Params.cookTime .Params.servings }}
+        <dl class="recipe-meta">
+          {{ with .Params.prepTime }}<div><dt>{{ T "prep" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{ with .Params.cookTime }}<div><dt>{{ T "cook" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{ with .Params.servings }}<div><dt>{{ T "serves" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+        </dl>
+      {{ end }}
+    </header>
+
+    {{ with $cover }}
+      <figure class="recipe__cover">
+        <img src="{{ .RelPermalink }}" alt="{{ $.Params.coverAlt | default $.Title }}">
+      </figure>
+    {{ end }}
+
+    {{ with .Content }}<div class="recipe__intro">{{ . }}</div>{{ end }}
+
+    <div class="recipe__details">
+      {{ with .Params.ingredients }}
+        <section class="recipe__ingredients" aria-labelledby="ingredients-heading">
+          <p class="eyebrow">{{ T "ingredients_eyebrow" }}</p>
+          <h2 id="ingredients-heading">{{ T "ingredients" }}</h2>
+          <ul>
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+        </section>
+      {{ end }}
+      {{ with .Params.steps }}
+        <section class="recipe__steps" aria-labelledby="method-heading">
+          <p class="eyebrow">{{ T "preparation_eyebrow" }}</p>
+          <h2 id="method-heading">{{ T "preparation" }}</h2>
+          <ol>
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ol>
+        </section>
+      {{ end }}
+    </div>
+  </article>
+{{ end }}

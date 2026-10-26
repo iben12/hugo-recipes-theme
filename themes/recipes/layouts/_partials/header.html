@@ -1,0 +1,5 @@
+<a class="site-brand" href="{{ site.Home.RelPermalink }}">
+  <span class="site-brand__name">{{ site.Title }}</span>
+  <span class="site-brand__tagline">{{ T "site_tagline" }}</span>
+</a>
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}

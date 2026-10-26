@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <header class="listing-intro">
+    <p class="eyebrow">{{ T "from_our_kitchen" }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="listing-intro__copy">{{ . }}</div>{{ end }}
+  </header>
+  <div class="recipe-grid">
+    {{ range .RegularPages }}
+      {{ partial "recipe-card.html" . }}
+    {{ else }}
+      <p class="empty-state">{{ T "no_recipes_yet" }}</p>
+    {{ end }}
+  </div>
+{{ end }}

@@ -1,0 +1,41 @@
+baseURL = 'https://example.org/'
+defaultContentLanguage = 'hu'
+title = 'The Sunday Table'
+
+[languages.hu]
+  locale = 'hu-HU'
+  label = 'Magyar'
+  weight = 1
+
+[taxonomies]
+  category = 'categories'
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    identifier = 'menu_home'
+    pageRef = '/'
+    weight = 10
+
+  [[menus.main]]
+    name = 'Recipes'
+    identifier = 'menu_recipes'
+    pageRef = '/posts'
+    weight = 20
+
+  [[menus.main]]
+    name = 'Categories'
+    identifier = 'menu_categories'
+    pageRef = '/categories'
+    weight = 30
+
+  [[menus.main]]
+    name = 'Search'
+    identifier = 'menu_search'
+    pageRef = '/search'
+    weight = 40
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = '0.146.0'

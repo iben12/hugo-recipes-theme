@@ -1,0 +1,10 @@
+{{- $page := .page }}
+{{- $taxonomy := .taxonomy }}
+
+{{- with $page.GetTerms $taxonomy }}
+  <ul class="recipe-categories" aria-label="{{ T "categories_aria_label" }}">
+    {{- range . }}
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{- end }}
+  </ul>
+{{- end }}

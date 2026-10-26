@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <header class="listing-intro">
+    <p class="eyebrow">{{ T "explore_recipe_box" }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="listing-intro__copy">{{ T "category_intro" }}</p>
+  </header>
+  <ul class="category-directory">
+    {{ range .Data.Terms.Alphabetical }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">
+          <span>{{ .Page.LinkTitle }}</span>
+          <span class="category-directory__count">{{ T "recipe_count" (dict "Count" .Count) }} <span aria-hidden="true">→</span></span>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

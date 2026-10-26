@@ -1,0 +1,124 @@
+[menu_home]
+other = "Kezdőlap"
+
+[menu_recipes]
+other = "Receptek"
+
+[menu_categories]
+other = "Kategóriák"
+
+[menu_search]
+other = "Keresés"
+
+[site_tagline]
+other = "Ahogy mi szeretjük"
+
+[footer_tagline]
+other = "„A szemétől a szájig, valami sós folyik és ő csak birkózik az ízzel...”."
+
+[home_eyebrow]
+other = "A little inspiration for your kitchen"
+
+[from_our_kitchen]
+other = "A mi konyhánkból"
+
+[recipes_to_return_to]
+other = "Ezekhez még gyere vissza"
+
+[all_recipes]
+other = "Minden recept"
+
+[recipes_coming_soon]
+other = "Recipes are coming soon. Check back for something delicious."
+
+[find_your_next_favorite]
+other = "Találd meg a következő kedvenced"
+
+[browse_by_category]
+other = "Kategóriák szerint"
+
+[all_categories]
+other = "Minden kategória"
+
+[no_recipes_yet]
+other = "Itt még nincs recept."
+
+[explore_recipe_box]
+other = "Nézzük a receptkönyvet"
+
+[category_intro]
+other = "Találja valami fincsit, amihez kedved van."
+
+[recipe_count]
+one = "{{ .Count }} recept"
+other = "{{ .Count }} recept"
+
+[back_to_categories]
+other = "← Minden kategóriához"
+
+[recipes_filed_under]
+other = "Ez itt mind"
+
+[recipes_to_try]
+one = "{{ .Count }} recept."
+other = "{{ .Count }} recept."
+
+[no_recipes_in_category]
+other = "Ebben a kategóriában még nincsenek receptek."
+
+[back_to_recipes]
+other = "← Minden recept"
+
+[by_author]
+other = "Szerző: {{ .Author }}"
+
+[prep]
+other = "Elkészítés"
+
+[cook]
+other = "Főzési idő"
+
+[serves]
+other = "Adag"
+
+[ingredients_eyebrow]
+other = "Mi kell hozzá"
+
+[ingredients]
+other = "Hozzávalók"
+
+[preparation_eyebrow]
+other = "Kezdjünk főzni"
+
+[preparation]
+other = "Elékészítés"
+
+[categories_aria_label]
+other = "Kategóriák"
+
+[search_eyebrow]
+other = "Ez jó lesz"
+
+[search_intro]
+other = "Keress ételre, hozzávalóra, kategóriára."
+
+[search_label]
+other = "Receptek keresése"
+
+[search_placeholder]
+other = "Például “paradicsom”, “csirke”, or “süti”"
+
+[search_button]
+other = "Keresés"
+
+[search_prompt]
+other = "Írj be egy ételt, hozzávalót, kategóriát a kezdéshez."
+
+[search_no_results]
+other = "Nincs találat a “{query}” kifejezésre. Próbálj valami mást."
+
+[search_results_one]
+other = "{count} receptet találtam."
+
+[search_results_other]
+other = "{count} receptet találtam."

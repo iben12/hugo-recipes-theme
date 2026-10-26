@@ -1,0 +1,19 @@
+{{- $cover := .Resources.GetMatch (default "cover.*" .Params.cover) -}}
+<article class="recipe-card">
+  <a class="recipe-card__link" href="{{ .RelPermalink }}">
+    {{- with $cover }}
+      <img class="recipe-card__image" src="{{ .RelPermalink }}" alt="{{ $.Params.coverAlt | default $.Title }}" loading="lazy">
+    {{- else }}
+      <div class="recipe-card__image recipe-card__image--empty" aria-hidden="true">
+        <span>{{ with $.Params.categories }}{{ index . 0 }}{{ else }}{{ T "from_our_kitchen" }}{{ end }}</span>
+      </div>
+    {{- end }}
+    <div class="recipe-card__body">
+      {{ with .Params.categories }}
+        <p class="recipe-card__category">{{ index . 0 }}</p>
+      {{ end }}
+      <h3>{{ .LinkTitle }}</h3>
+      {{ with .Params.headline }}<p class="recipe-card__headline">{{ . }}</p>{{ end }}
+    </div>
+  </a>
+</article>

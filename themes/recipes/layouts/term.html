@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <header class="listing-intro">
+    <a class="back-link" href="{{ "categories/" | relURL }}">{{ T "back_to_categories" }}</a>
+    <p class="eyebrow">{{ T "recipes_filed_under" }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="listing-intro__copy">{{ T "recipes_to_try" (dict "Count" (len .Pages)) }}</p>
+  </header>
+  <div class="recipe-grid">
+    {{ range .Pages }}
+      {{ partial "recipe-card.html" . }}
+    {{ else }}
+      <p class="empty-state">{{ T "no_recipes_in_category" }}</p>
+    {{ end }}
+  </div>
+{{ end }}

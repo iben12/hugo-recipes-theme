@@ -1,0 +1,52 @@
+{{ define "main" }}
+  {{ $recipes := where site.RegularPages "Section" "posts" }}
+  {{ $searchIndex := slice }}
+  {{ range $recipes }}
+    {{ $searchIndex = $searchIndex | append (dict
+      "title" .LinkTitle
+      "headline" (.Params.headline | default "")
+      "author" (.Params.author | default "")
+      "url" .RelPermalink
+      "categories" (.Params.categories | default slice)
+      "ingredients" (.Params.ingredients | default slice)
+    ) }}
+  {{ end }}
+
+  <section class="search-page" aria-labelledby="search-heading">
+    <header class="listing-intro">
+      <p class="eyebrow">{{ T "search_eyebrow" }}</p>
+      <h1 id="search-heading">{{ .Title }}</h1>
+      <p class="listing-intro__copy">{{ T "search_intro" }}</p>
+    </header>
+
+    <form class="recipe-search" role="search" action="{{ "search/" | relURL }}" method="get">
+      <label for="recipe-search-input">{{ T "search_label" }}</label>
+      <div class="recipe-search__control">
+        <input
+          id="recipe-search-input"
+          name="q"
+          type="search"
+          placeholder="{{ T "search_placeholder" }}"
+          autocomplete="off"
+          aria-describedby="recipe-search-status"
+        >
+        <button type="submit">{{ T "search_button" }}</button>
+      </div>
+    </form>
+
+    <p class="recipe-search__status" id="recipe-search-status" role="status" aria-live="polite">
+      {{ T "search_prompt" }}
+    </p>
+    <div class="recipe-grid recipe-search__results" id="recipe-search-results"></div>
+    <script id="recipe-search-index" type="application/json">{{ $searchIndex | jsonify | safeJS }}</script>
+    <script id="recipe-search-messages" type="application/json">{{ dict
+      "prompt" (T "search_prompt")
+      "noResults" (T "search_no_results")
+      "oneResult" (T "search_results_one")
+      "otherResults" (T "search_results_other")
+      "categoryLabel" (T "categories_aria_label")
+      "byAuthor" (T "by_author" (dict "Author" "{author}"))
+      | jsonify | safeJS
+    }}</script>
+  </section>
+{{ end }}

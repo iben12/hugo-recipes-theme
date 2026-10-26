@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Recipes on The Sunday Table</title>
+		<link>http://localhost:1313/posts/</link>
+		<description>Recent content in Recipes on The Sunday Table</description>
+		<generator>Hugo</generator>
+		<language>hu-HU</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Campfire citrus pancakes</title>
+				<link>http://localhost:1313/posts/campfire-citrus-pancakes/</link>
+				<pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+				<guid>http://localhost:1313/posts/campfire-citrus-pancakes/</guid>
+				<description>&lt;p&gt;Orange zest gives these tender pancakes a little lift. They&amp;rsquo;re equally good&#xA;made at home or cooked outside on a cool morning.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Slow-roasted tomato pasta</title>
+				<link>http://localhost:1313/posts/roasted-tomato-pasta/</link>
+				<pubDate>Wed, 15 Feb 2023 10:00:00 -0700</pubDate>
+				<guid>http://localhost:1313/posts/roasted-tomato-pasta/</guid>
+				<description>&lt;p&gt;Roasting coaxes out the tomatoes&amp;rsquo; sweetness and makes a rich sauce with almost&#xA;no hands-on time. A few torn basil leaves bring everything to life.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Lemon and herb roast chicken</title>
+				<link>http://localhost:1313/posts/lemon-herb-chicken/</link>
+				<pubDate>Sun, 15 Jan 2023 09:00:00 -0700</pubDate>
+				<guid>http://localhost:1313/posts/lemon-herb-chicken/</guid>
+				<description>&lt;p&gt;The kind of relaxed, generous roast that fills the kitchen with the smell of&#xA;lemon and rosemary. Put the potatoes in the same pan and let the oven do the&#xA;hard work.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

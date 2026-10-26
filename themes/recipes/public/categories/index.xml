@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Categories on The Sunday Table</title>
+		<link>http://localhost:1313/categories/</link>
+		<description>Recent content in Categories on The Sunday Table</description>
+		<generator>Hugo</generator>
+		<language>hu-HU</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Breakfast</title>
+				<link>http://localhost:1313/categories/breakfast/</link>
+				<pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+				<guid>http://localhost:1313/categories/breakfast/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Sweets</title>
+				<link>http://localhost:1313/categories/sweets/</link>
+				<pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+				<guid>http://localhost:1313/categories/sweets/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Main Dishes</title>
+				<link>http://localhost:1313/categories/main-dishes/</link>
+				<pubDate>Wed, 15 Feb 2023 10:00:00 -0700</pubDate>
+				<guid>http://localhost:1313/categories/main-dishes/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Vegetarian</title>
+				<link>http://localhost:1313/categories/vegetarian/</link>
+				<pubDate>Wed, 15 Feb 2023 10:00:00 -0700</pubDate>
+				<guid>http://localhost:1313/categories/vegetarian/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>

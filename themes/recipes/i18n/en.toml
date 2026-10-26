@@ -1,0 +1,124 @@
+[menu_home]
+other = "Home"
+
+[menu_recipes]
+other = "Recipes"
+
+[menu_categories]
+other = "Categories"
+
+[menu_search]
+other = "Search"
+
+[site_tagline]
+other = "Good things, made at home"
+
+[footer_tagline]
+other = "Made for gathering around the table."
+
+[home_eyebrow]
+other = "A little inspiration for your kitchen"
+
+[from_our_kitchen]
+other = "From our kitchen"
+
+[recipes_to_return_to]
+other = "Recipes to come back to"
+
+[all_recipes]
+other = "All recipes"
+
+[recipes_coming_soon]
+other = "Recipes are coming soon. Check back for something delicious."
+
+[find_your_next_favorite]
+other = "Find your next favorite"
+
+[browse_by_category]
+other = "Browse by category"
+
+[all_categories]
+other = "All categories"
+
+[no_recipes_yet]
+other = "No recipes here yet. Check back soon."
+
+[explore_recipe_box]
+other = "Explore the recipe box"
+
+[category_intro]
+other = "Find something lovely to make, whatever you're in the mood for."
+
+[recipe_count]
+one = "{{ .Count }} recipe"
+other = "{{ .Count }} recipes"
+
+[back_to_categories]
+other = "← All categories"
+
+[recipes_filed_under]
+other = "Recipes filed under"
+
+[recipes_to_try]
+one = "{{ .Count }} recipe to try."
+other = "{{ .Count }} recipes to try."
+
+[no_recipes_in_category]
+other = "No recipes in this category yet."
+
+[back_to_recipes]
+other = "← All recipes"
+
+[by_author]
+other = "By {{ .Author }}"
+
+[prep]
+other = "Prep"
+
+[cook]
+other = "Cook"
+
+[serves]
+other = "Serves"
+
+[ingredients_eyebrow]
+other = "What you'll need"
+
+[ingredients]
+other = "Ingredients"
+
+[preparation_eyebrow]
+other = "Let's get cooking"
+
+[preparation]
+other = "Preparation"
+
+[categories_aria_label]
+other = "Categories"
+
+[search_eyebrow]
+other = "A good thing to make"
+
+[search_intro]
+other = "Search by dish, ingredient, or category."
+
+[search_label]
+other = "Search recipes"
+
+[search_placeholder]
+other = "Try “tomato”, “chicken”, or “sweets”"
+
+[search_button]
+other = "Search"
+
+[search_prompt]
+other = "Enter a dish, ingredient, or category to get started."
+
+[search_no_results]
+other = "No recipes found for “{query}”. Try a different search."
+
+[search_results_one]
+other = "{count} recipe found."
+
+[search_results_other]
+other = "{count} recipes found."

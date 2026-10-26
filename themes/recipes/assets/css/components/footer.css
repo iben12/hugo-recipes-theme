@@ -1,0 +1,26 @@
+body > footer {
+  align-items: center;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  display: flex;
+  font-size: 0.82rem;
+  gap: 1rem;
+  justify-content: space-between;
+  padding-block: 1.5rem;
+}
+
+body > footer p {
+  margin: 0;
+}
+
+body > footer small {
+  font-size: inherit;
+}
+
+@media (max-width: 520px) {
+  body > footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
