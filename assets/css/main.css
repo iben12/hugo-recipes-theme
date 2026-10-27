@@ -419,6 +419,12 @@ h2 {
   counter-reset: preparation-step;
 }
 
+.recipe__instructions h3 {
+  font-size: 1.3rem;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
 .recipe__instructions > p:first-child {
   color: var(--muted);
   font-family: var(--serif);
@@ -630,6 +636,13 @@ h2 {
 @media (max-width: 520px) {
   .recipe-grid {
     grid-template-columns: 1fr;
+  }
+
+  .recipe__ingredients li,
+  .recipe__instructions li,
+  .recipe-tip__content {
+    font-size: 1.125rem;
+    line-height: 1.7;
   }
 
   .section-heading {
