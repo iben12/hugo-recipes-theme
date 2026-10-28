@@ -1,11 +1,15 @@
 {{- $page := .page }}
 {{- $taxonomy := .taxonomy }}
 {{- $label := .label }}
+{{- $class := .class | default "recipe-categories" }}
 
 {{- with $page.GetTerms $taxonomy }}
-  <ul class="recipe-categories" aria-label="{{ $label }}">
-    {{- range . }}
-      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-    {{- end }}
-  </ul>
+  <div class="recipe-taxonomy-group">
+    <span class="recipe-taxonomy__label">{{ $label }}:</span>
+    <ul class="{{ $class }}" aria-label="{{ $label }}">
+      {{- range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
 {{- end }}

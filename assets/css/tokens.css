@@ -235,11 +235,39 @@
 }
 
 /* ============================================================
-   DARK MODE SUPPORT (optional, for future)
+   DARK MODE SUPPORT
    ============================================================ */
 
+/* Class-based toggle (manual override) */
+[data-theme="dark"] {
+  --color-paper: #1a1815;
+  --color-parchment: #23201c;
+  --color-ink: #f5f0e8;
+  --color-ink-muted: #c8c0b0;
+  --color-muted: #a8a090;
+  --color-muted-light: #888070;
+  --color-line: #3a3530;
+  --color-line-dark: #4a453e;
+  --color-surface: #1f1d1a;
+  --color-surface-warm: #25221e;
+  --color-surface-alt: #2a2722;
+  --color-tomato: #e88d7a;          /* Light variant for text contrast on dark */
+  --color-tomato-dark: #d07a6a;     /* Adjusted for text contrast (5.6:1 on dark bg) */
+  --color-tomato-light: #f0a898;    /* Even lighter for subtle uses */
+  --color-tomato-pale: #4a251e;
+  --color-olive: #8a9b6b;           /* Light variant for text contrast on dark */
+  --color-olive-dark: #a8b88b;      /* Lighter for hover (more visible on dark) */
+  --color-olive-light: #c8d8ab;     /* Even lighter for subtle uses */
+  --color-olive-pale: #2a301a;
+  --color-honey: #e8c57a;           /* Light variant for better contrast */
+  --color-honey-dark: #d4a843;      /* Original honey for hover */
+  --color-honey-light: #f0d598;     /* Even lighter */
+  --color-honey-pale: #4a3d1a;
+}
+
+/* System preference (fallback when no manual choice) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --color-paper: #1a1815;
     --color-parchment: #23201c;
     --color-ink: #f5f0e8;
@@ -251,8 +279,17 @@
     --color-surface: #1f1d1a;
     --color-surface-warm: #25221e;
     --color-surface-alt: #2a2722;
+    --color-tomato: #e88d7a;          /* Light variant for text contrast on dark */
+    --color-tomato-dark: #d07a6a;     /* Adjusted for text contrast (5.6:1 on dark bg) */
+    --color-tomato-light: #f0a898;    /* Even lighter for subtle uses */
     --color-tomato-pale: #4a251e;
+    --color-olive: #8a9b6b;           /* Light variant for text contrast on dark */
+    --color-olive-dark: #a8b88b;      /* Lighter for hover (more visible on dark) */
+    --color-olive-light: #c8d8ab;     /* Even lighter for subtle uses */
     --color-olive-pale: #2a301a;
+    --color-honey: #e8c57a;           /* Light variant for better contrast */
+    --color-honey-dark: #d4a843;      /* Original honey for hover */
+    --color-honey-light: #f0d598;     /* Even lighter */
     --color-honey-pale: #4a3d1a;
   }
 }

@@ -130,7 +130,7 @@ other = "{count} receptet találtam."
 other = "{count} receptet találtam."
 
 [cooking_mode]
-other = "Főzési mód"
+other = "Főzés mód"
 
 [exit_cooking_mode]
 other = "Kilépés a főzési módból"
@@ -161,3 +161,6 @@ other = "Időzítő"
 
 [add_timer]
 other = "Időzítő hozzáadása"
+
+[toggle_dark_mode]
+other = "Sötét mód ki/be"

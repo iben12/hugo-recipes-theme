@@ -233,19 +233,6 @@ hr.brush-divider {
   padding-top: var(--space-8);
 }
 
-.recipe-featured::before {
-  content: "";
-  position: absolute;
-  top: var(--space-3);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3rem;
-  height: 3rem;
-  background: center / contain no-repeat url('../images/illustrations/heirloom-star.svg');
-  color: var(--color-honey);
-  opacity: 0.3;
-}
-
 /* Section header with herb divider */
 .section-header--herb {
   display: flex;

@@ -124,3 +124,61 @@ if (document.readyState === "loading") {
 } else {
   initializeRecipeSearch();
 }
+
+// Theme toggle
+function initializeThemeToggle() {
+  'use strict';
+
+  const STORAGE_KEY = 'theme-preference';
+  const toggleBtn = document.querySelector('.theme-toggle');
+
+  if (!toggleBtn) return;
+
+  // Initialize theme from storage or system preference
+  function initTheme() {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      document.documentElement.setAttribute('data-theme', stored);
+      updateAriaPressed(stored === 'dark');
+    } else {
+      // Check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefersDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateAriaPressed(true);
+      }
+    }
+  }
+
+  function updateAriaPressed(isDark) {
+    toggleBtn.setAttribute('aria-pressed', isDark);
+  }
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const isDark = current === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem(STORAGE_KEY, newTheme);
+    updateAriaPressed(!isDark);
+  }
+
+  toggleBtn.addEventListener('click', toggleTheme);
+
+  // Listen for system preference changes (if user hasn't made a choice)
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      updateAriaPressed(e.matches);
+    }
+  });
+
+  initTheme();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeThemeToggle);
+} else {
+  initializeThemeToggle();
+}

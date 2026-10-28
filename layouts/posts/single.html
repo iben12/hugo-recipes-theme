@@ -4,20 +4,22 @@
     <header class="recipe__header">
       <a class="back-link" href="{{ "posts/" | relURL }}">{{ T "back_to_recipes" }}</a>
 
-      {{ partial "terms.html" (dict "taxonomy" "categories" "page" . "label" (T "categories_aria_label")) }}
-      {{ partial "terms.html" (dict "taxonomy" "tags" "page" . "label" (T "tags_aria_label")) }}
-
       <h1>{{ .Title }}</h1>
       {{ with .Params.headline }}<p class="recipe__headline">{{ . }}</p>{{ end }}
       {{ with .Params.author }}<p class="recipe__author">{{ T "by_author" (dict "Author" .) }}</p>{{ end }}
 
       {{ if or .Params.prepTime .Params.cookTime .Params.servings }}
         <dl class="recipe-meta">
-          {{ with .Params.prepTime }}<div><dt>{{ T "prep" }}</dt><dd><svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>{{ . }}</dd></div>{{ end }}
-          {{ with .Params.cookTime }}<div><dt>{{ T "cook" }}</dt><dd><svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>{{ . }}</dd></div>{{ end }}
-          {{ with .Params.servings }}<div><dt>{{ T "serves" }}</dt><dd><svg class="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>{{ . }}</dd></div>{{ end }}
+          {{ with .Params.prepTime }}<div><dt>{{ T "prep" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{ with .Params.cookTime }}<div><dt>{{ T "cook" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{ with .Params.servings }}<div><dt>{{ T "serves" }}</dt><dd>{{ . }}</dd></div>{{ end }}
         </dl>
       {{ end }}
+
+      <div class="recipe-taxonomies">
+        {{ partial "terms.html" (dict "taxonomy" "categories" "page" . "label" (T "categories_aria_label") "class" "recipe-taxonomy") }}
+        {{ partial "terms.html" (dict "taxonomy" "tags" "page" . "label" (T "tags_aria_label") "class" "recipe-taxonomy") }}
+      </div>
 
       <!-- Cooking mode trigger -->
       <button class="cooking-mode-trigger" type="button" aria-label="{{ T "cooking_mode" }}" data-recipe-id="{{ .File.BaseFileName }}">

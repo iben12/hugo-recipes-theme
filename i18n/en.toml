@@ -161,3 +161,6 @@ other = "Timer"
 
 [add_timer]
 other = "Add Timer"
+
+[toggle_dark_mode]
+other = "Toggle dark mode"
