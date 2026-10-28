@@ -1,5 +1,5 @@
 {{- $cover := .Resources.GetMatch (default "cover.*" .Params.cover) -}}
-<article class="recipe-card">
+<article class="recipe-card recipe-card--illustrated">
   <a class="recipe-card__link" href="{{ .RelPermalink }}">
     {{- with $cover }}
       <img class="recipe-card__image" src="{{ .RelPermalink }}" alt="{{ $.Params.coverAlt | default $.Title }}" loading="lazy">
@@ -14,6 +14,11 @@
       {{ end }}
       <h3>{{ .LinkTitle }}</h3>
       {{ with .Params.headline }}<p class="recipe-card__headline">{{ . }}</p>{{ end }}
+      <div class="recipe-card__meta">
+        {{ with .Params.prep }}<span class="recipe-card__meta-item" aria-label="Prep time"><svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>{{ . }}</span>{{ end }}
+        {{ with .Params.cook }}<span class="recipe-card__meta-item" aria-label="Cook time"><svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>{{ . }}</span>{{ end }}
+        {{ with .Params.serves }}<span class="recipe-card__meta-item" aria-label="Servings"><svg class="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>{{ . }}</span>{{ end }}
+      </div>
     </div>
   </a>
 </article>

@@ -1,20 +1,32 @@
 {{ define "main" }}
   {{ $cover := .Resources.GetMatch (default "cover.*" .Params.cover) }}
-  <article class="recipe">
+  <article class="recipe recipe-featured">
     <header class="recipe__header">
       <a class="back-link" href="{{ "posts/" | relURL }}">{{ T "back_to_recipes" }}</a>
+
       {{ partial "terms.html" (dict "taxonomy" "categories" "page" . "label" (T "categories_aria_label")) }}
       {{ partial "terms.html" (dict "taxonomy" "tags" "page" . "label" (T "tags_aria_label")) }}
+
       <h1>{{ .Title }}</h1>
       {{ with .Params.headline }}<p class="recipe__headline">{{ . }}</p>{{ end }}
       {{ with .Params.author }}<p class="recipe__author">{{ T "by_author" (dict "Author" .) }}</p>{{ end }}
+
       {{ if or .Params.prepTime .Params.cookTime .Params.servings }}
         <dl class="recipe-meta">
-          {{ with .Params.prepTime }}<div><dt>{{ T "prep" }}</dt><dd>{{ . }}</dd></div>{{ end }}
-          {{ with .Params.cookTime }}<div><dt>{{ T "cook" }}</dt><dd>{{ . }}</dd></div>{{ end }}
-          {{ with .Params.servings }}<div><dt>{{ T "serves" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{ with .Params.prepTime }}<div><dt>{{ T "prep" }}</dt><dd><svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>{{ . }}</dd></div>{{ end }}
+          {{ with .Params.cookTime }}<div><dt>{{ T "cook" }}</dt><dd><svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>{{ . }}</dd></div>{{ end }}
+          {{ with .Params.servings }}<div><dt>{{ T "serves" }}</dt><dd><svg class="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>{{ . }}</dd></div>{{ end }}
         </dl>
       {{ end }}
+
+      <!-- Cooking mode trigger -->
+      <button class="cooking-mode-trigger" type="button" aria-label="{{ T "cooking_mode" }}" data-recipe-id="{{ .File.BaseFileName }}">
+        <svg class="icon-cooking" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 2v20M2 12h20"/>
+          <circle cx="12" cy="12" r="4"/>
+        </svg>
+        <span>{{ T "cooking_mode" }}</span>
+      </button>
     </header>
 
     {{ with $cover }}
@@ -30,11 +42,12 @@
         <section class="recipe__ingredients" aria-labelledby="ingredients-heading">
           <p class="eyebrow">{{ T "ingredients_eyebrow" }}</p>
           <h2 id="ingredients-heading">{{ T "ingredients" }}</h2>
-          <ul>
-            {{ range . }}<li>{{ . }}</li>{{ end }}
+          <ul class="ingredients-list">
+            {{ range . }}<li class="ingredient-item">{{ . }}</li>{{ end }}
           </ul>
         </section>
       {{ end }}
+
       {{ with .Content }}
         <section class="recipe__steps" aria-labelledby="method-heading">
           <p class="eyebrow">{{ T "preparation_eyebrow" }}</p>
@@ -44,4 +57,81 @@
       {{ end }}
     </div>
   </article>
+
+  <!-- Cooking Mode Overlay -->
+  <div class="cooking-mode-overlay" id="cooking-mode" role="dialog" aria-modal="true" aria-label="{{ T "cooking_mode" }}" hidden>
+    <div class="cooking-mode__backdrop" tabindex="-1"></div>
+    <div class="cooking-mode__panel">
+      <header class="cooking-mode__header">
+        <h2>{{ .Title }}</h2>
+        <button class="cooking-mode__close" type="button" aria-label="{{ T "exit_cooking_mode" }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </header>
+
+      <div class="cooking-mode__progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="{{ T "cooking_progress" }}">
+        <div class="cooking-mode__progress-bar"></div>
+      </div>
+
+      <nav class="cooking-mode__nav" aria-label="{{ T "step_navigation" }}">
+        <button class="cooking-mode__step-btn cooking-mode__step-btn--prev" type="button" aria-label="{{ T "previous_step" }}" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="cooking-mode__step-indicator" aria-live="polite">
+          <span class="cooking-mode__current-step">1</span> / <span class="cooking-mode__total-steps">1</span>
+        </div>
+        <button class="cooking-mode__step-btn cooking-mode__step-btn--next" type="button" aria-label="{{ T "next_step" }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </nav>
+
+      <div class="cooking-mode__content">
+        <section class="cooking-mode__ingredients" aria-labelledby="cooking-ingredients-heading">
+          <h3 id="cooking-ingredients-heading">{{ T "ingredients" }}</h3>
+          <ul class="ingredients-list cooking-mode__ingredients-list"></ul>
+        </section>
+
+        <section class="cooking-mode__steps" aria-labelledby="cooking-steps-heading">
+          <h3 id="cooking-steps-heading">{{ T "preparation" }}</h3>
+          <ol class="cooking-mode__steps-list"></ol>
+        </section>
+      </div>
+
+      <div class="cooking-mode__controls">
+        <button class="cooking-mode__voice-btn" type="button" aria-label="{{ T "voice_control" }}" aria-pressed="false">
+          <svg class="icon-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+          <span class="cooking-mode__voice-status">{{ T "voice_ready" }}</span>
+        </button>
+        <button class="cooking-mode__timer-btn" type="button" aria-label="{{ T "timer" }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>{{ T "add_timer" }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cooking mode i18n injection -->
+  <script>
+    window.COOKING_I18N = {
+      cookingMode: {{ T "cooking_mode" | jsonify }},
+      exitCookingMode: {{ T "exit_cooking_mode" | jsonify }},
+      cookingProgress: {{ T "cooking_progress" | jsonify }},
+      previousStep: {{ T "previous_step" | jsonify }},
+      nextStep: {{ T "next_step" | jsonify }},
+      voiceControl: {{ T "voice_control" | jsonify }},
+      voiceReady: {{ T "voice_ready" | jsonify }},
+      voiceListening: {{ T "voice_listening" | jsonify }},
+      voiceError: {{ T "voice_error" | jsonify }},
+      timer: {{ T "timer" | jsonify }},
+      addTimer: {{ T "add_timer" | jsonify }},
+      ingredients: {{ T "ingredients" | jsonify }},
+      preparation: {{ T "preparation" | jsonify }},
+      categoryLabel: {{ T "categories_aria_label" | jsonify }},
+      byAuthor: {{ T "by_author" | jsonify }},
+      oneResult: {{ T "search_results_one" | jsonify }},
+      otherResults: {{ T "search_results_other" | jsonify }},
+      prompt: {{ T "search_prompt" | jsonify }},
+      noResults: {{ T "search_no_results" | jsonify }}
+    };
+  </script>
 {{ end }}

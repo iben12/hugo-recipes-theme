@@ -1,3 +1,6 @@
+// Import cooking mode
+import './cooking-mode.js';
+
 function initializeRecipeSearch() {
   const input = document.querySelector("#recipe-search-input");
   const results = document.querySelector("#recipe-search-results");

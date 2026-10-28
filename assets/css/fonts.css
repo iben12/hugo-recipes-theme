@@ -1,0 +1,71 @@
+/* Self-hosted Variable Fonts for the Sunday Table theme
+ *
+ * Source: Google Fonts (OFL licensed)
+ * 1. Cormorant Garamond: Variable (wght 300-700, italic)
+ * 2. DM Sans: Variable (opsz 8-144, wght 400-700, italic)
+ * 3. Patrick Hand: Regular only (static TTF)
+ * 4. JetBrains Mono: Variable (wght 100-800, italic)
+ *
+ * All fonts support Latin Extended-A (Hungarian: áéíóöőúüű)
+ */
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../fonts/CormorantGaramond-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../fonts/CormorantGaramond-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 300 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* DM Sans — Body/UI font (warm, readable, modern) */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype-variations');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  font-stretch: 100%;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../fonts/DMSans-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+  font-stretch: 100%;
+}
+
+/* Patrick Hand — Handwritten accent (for labels, tips, personal notes) */
+@font-face {
+  font-family: 'Patrick Hand';
+  src: url('../fonts/PatrickHand-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* JetBrains Mono — Measurements/quantities (precise, technical) */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/JetBrainsMono-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 800;
+  font-style: italic;
+  font-display: swap;
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+  <!-- Dry brush stroke - tomato -->
+  <path d="M10 15
+         Q50 5 100 15
+         Q150 25 200 15
+         Q250 5 300 15
+         Q350 25 390 15"
+        stroke="#c45a3e"
+        stroke-width="2.5"
+        fill="none"
+        opacity="0.9"/>
+  <!-- Lighter secondary stroke -->
+  <path d="M20 16
+         Q60 10 110 16
+         Q160 22 210 16
+         Q260 10 310 16
+         Q360 22 380 16"
+        stroke="#c45a3e"
+        stroke-width="1"
+        fill="none"
+        opacity="0.4"/>
+  <!-- Speckles for texture -->
+  <g fill="#c45a3e" opacity="0.3">
+    <circle cx="45" cy="8" r="1"/>
+    <circle cx="120" cy="22" r="0.8"/>
+    <circle cx="185" cy="6" r="1.2"/>
+    <circle cx="260" cy="24" r="0.7"/>
+    <circle cx="330" cy="9" r="1"/>
+  </g>
+</svg>

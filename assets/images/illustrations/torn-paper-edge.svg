@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" fill="none">
+  <!-- Torn paper top edge - deckle effect -->
+  <path d="M0 60
+         Q20 55 40 58
+         Q60 62 80 57
+         Q100 52 120 56
+         Q140 60 160 55
+         Q180 50 200 54
+         Q220 58 240 56
+         Q260 52 280 57
+         Q300 61 320 55
+         Q340 49 360 53
+         Q380 57 400 55
+         L400 80
+         L0 80
+         Z"
+        fill="#fefcf8"
+        stroke="#e8e2d6"
+        stroke-width="1"/>
+  <!-- Inner shadow for depth -->
+  <path d="M0 60
+         Q20 55 40 58
+         Q60 62 80 57
+         Q100 52 120 56
+         Q140 60 160 55
+         Q180 50 200 54
+         Q220 58 240 56
+         Q260 52 280 57
+         Q300 61 320 55
+         Q340 49 360 53
+         Q380 57 400 55"
+        fill="none"
+        stroke="#dcd5c8"
+        stroke-width="0.5"
+        opacity="0.5"/>
+  <!-- Subtle fiber texture lines -->
+  <g stroke="#e8e2d6" stroke-width="0.3" opacity="0.3">
+    <path d="M30 65 Q50 68 70 66"/>
+    <path d="M110 68 Q130 72 150 69"/>
+    <path d="M190 64 Q210 67 230 65"/>
+    <path d="M270 66 Q290 69 310 67"/>
+    <path d="M350 63 Q370 66 390 64"/>
+  </g>
+</svg>

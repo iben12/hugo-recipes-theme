@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Outer star - slightly irregular/hand-drawn -->
+  <path d="M50 8
+         L58 32
+         L88 38
+         L64 58
+         L72 88
+         L50 72
+         L28 88
+         L36 58
+         L12 38
+         L42 32
+         Z"
+        fill="#fef6e8"
+        stroke="#d4a843"
+        stroke-width="2"/>
+  <!-- Inner star - smaller, rotated -->
+  <path d="M50 22
+         L55 38
+         L74 42
+         L59 54
+         L63 72
+         L50 62
+         L37 72
+         L41 54
+         L26 42
+         L45 38
+         Z"
+        fill="#fef6e8"
+        stroke="#d4a843"
+        stroke-width="1.5"
+        opacity="0.8"/>
+  <!-- Center dot -->
+  <circle cx="50" cy="50" r="6" fill="#d4a843"/>
+  <!-- Sparkle accents -->
+  <g stroke="#d4a843" stroke-width="1.5">
+    <path d="M50 0 L50 4"/>
+    <path d="M50 96 L50 100"/>
+    <path d="M0 50 L4 50"/>
+    <path d="M96 50 L100 50"/>
+    <path d="M12 12 L16 16"/>
+    <path d="M84 12 L88 16"/>
+    <path d="M12 84 L16 88"/>
+    <path d="M84 84 L88 88"/>
+  </g>
+  <!-- Subtle distress marks for "heirloom" feel -->
+  <g stroke="#b89238" stroke-width="0.5" opacity="0.4">
+    <path d="M45 45 L48 48"/>
+    <path d="M55 55 L58 58"/>
+    <path d="M40 60 L43 63"/>
+    <path d="M60 40 L63 43"/>
+  </g>
+</svg>

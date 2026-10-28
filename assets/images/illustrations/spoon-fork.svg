@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Fork (left) -->
+  <g transform="translate(20, 20)">
+    <!-- Handle -->
+    <path d="M0 120 Q-10 130 -15 145 Q-20 155 -18 165" stroke="#c45a3e" stroke-width="3"/>
+    <!-- Neck -->
+    <path d="M0 120 L5 95" stroke="#c45a3e" stroke-width="3"/>
+    <!-- Tines -->
+    <path d="M5 95 L0 40" stroke="#c45a3e" stroke-width="2"/>
+    <path d="M5 95 L5 35" stroke="#c45a3e" stroke-width="2"/>
+    <path d="M5 95 L10 40" stroke="#c45a3e" stroke-width="2"/>
+    <path d="M5 95 L15 45" stroke="#c45a3e" stroke-width="2"/>
+    <!-- Decorative dots on handle -->
+    <circle cx="-12" cy="150" r="2" fill="#c45a3e"/>
+    <circle cx="-14" cy="135" r="1.5" fill="#c45a3e"/>
+    <circle cx="-16" cy="120" r="1" fill="#c45a3e"/>
+  </g>
+
+  <!-- Spoon (right) - crossed behind fork -->
+  <g transform="translate(180, 20) scale(-1, 1)">
+    <!-- Handle -->
+    <path d="M0 120 Q10 130 15 145 Q20 155 18 165" stroke="#d4a843" stroke-width="3"/>
+    <!-- Neck -->
+    <path d="M0 120 L-5 95" stroke="#d4a843" stroke-width="3"/>
+    <!-- Bowl -->
+    <path d="M-5 95 Q-5 60 0 40 Q5 60 5 95" stroke="#d4a843" stroke-width="2" fill="none"/>
+    <!-- Bowl inner highlight -->
+    <path d="M-3 85 Q-3 65 0 50 Q3 65 3 85" stroke="#d4a843" stroke-width="1" opacity="0.5"/>
+    <!-- Decorative dots on handle -->
+    <circle cx="12" cy="150" r="2" fill="#d4a843"/>
+    <circle cx="14" cy="135" r="1.5" fill="#d4a843"/>
+    <circle cx="16" cy="120" r="1" fill="#d4a843"/>
+  </g>
+
+  <!-- Crossed intersection indicator -->
+  <circle cx="100" cy="100" r="8" fill="none" stroke="#f5ebe0" stroke-width="2"/>
+  <circle cx="100" cy="100" r="4" fill="#f5ebe0"/>
+</svg>

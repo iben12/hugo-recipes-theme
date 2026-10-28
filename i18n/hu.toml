@@ -128,3 +128,36 @@ other = "{count} receptet találtam."
 
 [search_results_other]
 other = "{count} receptet találtam."
+
+[cooking_mode]
+other = "Főzési mód"
+
+[exit_cooking_mode]
+other = "Kilépés a főzési módból"
+
+[cooking_progress]
+other = "Főzési előrehaladás"
+
+[previous_step]
+other = "Előző lépés"
+
+[next_step]
+other = "Következő lépés"
+
+[voice_control]
+other = "Hangvezérlés"
+
+[voice_ready]
+other = "Készen áll"
+
+[voice_listening]
+other = "Hallgatok..."
+
+[voice_error]
+other = "Nem sikerült felismerni"
+
+[timer]
+other = "Időzítő"
+
+[add_timer]
+other = "Időzítő hozzáadása"

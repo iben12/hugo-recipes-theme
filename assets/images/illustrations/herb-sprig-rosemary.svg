@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Main stem -->
+  <path d="M60 190 Q55 140 60 100 Q65 60 60 20" stroke="#5d6b3f" stroke-width="2"/>
+  <!-- Needles - left side -->
+  <g stroke="#5d6b3f" stroke-width="1.2">
+    <path d="M58 180 L50 185"/>
+    <path d="M56 170 L47 178"/>
+    <path d="M54 160 L44 170"/>
+    <path d="M53 150 L42 162"/>
+    <path d="M52 140 L40 154"/>
+    <path d="M52 130 L39 145"/>
+    <path d="M53 120 L39 136"/>
+    <path d="M54 110 L39 127"/>
+    <path d="M56 100 L40 118"/>
+    <path d="M58 90 L42 109"/>
+    <path d="M59 80 L44 95"/>
+  </g>
+  <!-- Needles - right side -->
+  <g stroke="#5d6b3f" stroke-width="1.2">
+    <path d="M62 180 L70 185"/>
+    <path d="M64 170 L73 178"/>
+    <path d="M66 160 L76 170"/>
+    <path d="M67 150 L78 162"/>
+    <path d="M68 140 L80 154"/>
+    <path d="M68 130 L81 145"/>
+    <path d="M67 120 L81 136"/>
+    <path d="M66 110 L81 127"/>
+    <path d="M64 100 L80 118"/>
+    <path d="M62 90 L78 109"/>
+    <path d="M61 80 L76 95"/>
+  </g>
+  <!-- Top cluster -->
+  <g stroke="#5d6b3f" stroke-width="1.2">
+    <path d="M60 30 L55 40"/>
+    <path d="M60 30 L65 40"/>
+    <path d="M60 30 L60 15"/>
+    <path d="M58 40 L52 52"/>
+    <path d="M62 40 L68 52"/>
+  </g>
+</svg>

@@ -128,3 +128,36 @@ other = "{count} recipe found."
 
 [search_results_other]
 other = "{count} recipes found."
+
+[cooking_mode]
+other = "Cooking Mode"
+
+[exit_cooking_mode]
+other = "Exit Cooking Mode"
+
+[cooking_progress]
+other = "Cooking Progress"
+
+[previous_step]
+other = "Previous Step"
+
+[next_step]
+other = "Next Step"
+
+[voice_control]
+other = "Voice Control"
+
+[voice_ready]
+other = "Ready"
+
+[voice_listening]
+other = "Listening..."
+
+[voice_error]
+other = "Couldn't understand"
+
+[timer]
+other = "Timer"
+
+[add_timer]
+other = "Add Timer"

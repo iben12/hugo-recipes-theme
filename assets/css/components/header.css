@@ -1,10 +1,10 @@
 body > header {
   align-items: center;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--color-line);
   display: flex;
-  gap: 2rem;
+  gap: var(--space-8);
   justify-content: space-between;
-  padding-block: 1.25rem;
+  padding-block: var(--space-5);
 }
 
 .site-brand {
@@ -14,42 +14,42 @@ body > header {
 }
 
 .site-brand__name {
-  color: var(--tomato-dark);
-  font-family: var(--serif);
-  font-size: 1.7rem;
+  color: var(--color-tomato-dark);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
 }
 
 .site-brand__tagline {
-  color: var(--muted);
-  font-size: 0.7rem;
-  letter-spacing: 0.04em;
-  margin-top: 0.25rem;
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  margin-top: var(--space-1);
 }
 
 nav ul {
   align-items: center;
   display: flex;
-  gap: clamp(1rem, 3vw, 2rem);
+  gap: clamp(var(--space-4), 3vw, var(--space-8));
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 nav a {
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 600;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
 }
 
 nav a:hover,
 nav a.active {
-  color: var(--tomato-dark);
+  color: var(--color-tomato-dark);
 }
 
 @media (max-width: 520px) {
   body > header {
     align-items: flex-start;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--space-4);
   }
 }

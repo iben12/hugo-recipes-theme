@@ -1,0 +1,306 @@
+/* Illustration Utilities — The Sunday Table
+ * Helper classes for using SVG illustrations throughout the theme
+ * All SVGs use currentColor for stroke — color via CSS custom properties
+ */
+
+/* ============================================================
+   HERB SPRIGS
+   Use as decorative accents, section dividers, recipe card corners
+   ============================================================ */
+
+.illustration-herb {
+  display: inline-block;
+  width: var(--illustration-size, 3rem);
+  height: var(--illustration-size, 3rem);
+  background: center / contain no-repeat;
+  color: var(--color-olive); /* stroke color via currentColor */
+}
+
+.illustration-herb--rosemary {
+  background-image: url('../images/illustrations/herb-sprig-rosemary.svg');
+}
+
+.illustration-herb--thyme {
+  background-image: url('../images/illustrations/herb-sprig-thyme.svg');
+}
+
+.illustration-herb--parsley {
+  background-image: url('../images/illustrations/herb-sprig-parsley.svg');
+}
+
+/* Herb as corner accent (top-right of recipe cards) */
+.recipe-card__herb {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 2.5rem;
+  height: 2.5rem;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ============================================================
+   SPOON & FORK
+   Hero icon, category marker, loading state, favicon
+   ============================================================ */
+
+.illustration-spoon-fork {
+  display: inline-block;
+  width: var(--illustration-size, 4rem);
+  height: var(--illustration-size, 4rem);
+  background: center / contain no-repeat url('../images/illustrations/spoon-fork.svg');
+  color: var(--color-tomato); /* fork color */
+}
+
+/* Spoon-fork as loading spinner */
+.illustration-spoon-fork--spin {
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   HEIRLOOM STAR
+   Featured recipes, ratings, "grandma's favorite" badge
+   ============================================================ */
+
+.illustration-heirloom {
+  display: inline-block;
+  width: var(--illustration-size, 2.5rem);
+  height: var(--illustration-size, 2.5rem);
+  background: center / contain no-repeat url('../images/illustrations/heirloom-star.svg');
+  color: var(--color-honey); /* star color */
+}
+
+/* Badge variant */
+.badge-heirloom {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-honey-pale);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-honey-dark);
+}
+
+.badge-heirloom::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background: center / contain no-repeat url('../images/illustrations/heirloom-star.svg');
+  color: var(--color-honey);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   BRUSH DIVIDERS
+   Section separators, between recipe steps, tip box borders
+   ============================================================ */
+
+.divider-brush {
+  display: block;
+  width: 100%;
+  height: var(--divider-height, 1.5rem);
+  background: center / cover no-repeat;
+}
+
+.divider-brush--tomato {
+  background-image: url('../images/illustrations/brush-divider.svg');
+}
+
+.divider-brush--olive {
+  background-image: url('../images/illustrations/brush-divider-olive.svg');
+}
+
+.divider-brush--honey {
+  background-image: url('../images/illustrations/brush-divider-honey.svg');
+}
+
+/* Horizontal rule replacement */
+hr.brush-divider {
+  border: none;
+  margin: var(--space-6) 0;
+  height: 1.5rem;
+  background: center / cover no-repeat url('../images/illustrations/brush-divider.svg');
+}
+
+/* ============================================================
+   TORN PAPER EDGES
+   Recipe card backgrounds, print styles, feature panels
+   ============================================================ */
+
+.torn-paper {
+  position: relative;
+  background: var(--color-surface-warm);
+}
+
+.torn-paper::before,
+.torn-paper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  background: center / cover no-repeat;
+  pointer-events: none;
+}
+
+.torn-paper::before {
+  top: -1.5rem;
+  background-image: url('../images/illustrations/torn-paper-edge.svg');
+  transform: rotate(180deg);
+}
+
+.torn-paper::after {
+  bottom: -1.5rem;
+  background-image: url('../images/illustrations/torn-paper-edge-bottom.svg');
+}
+
+/* Vertical torn edges (for side borders) */
+.torn-paper-vertical {
+  position: relative;
+}
+
+.torn-paper-vertical::before,
+.torn-paper-vertical::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2.5rem;
+  background: center / cover no-repeat url('../images/illustrations/torn-paper-edge-vertical.svg');
+  pointer-events: none;
+}
+
+.torn-paper-vertical::before {
+  left: -1.25rem;
+}
+
+.torn-paper-vertical::after {
+  right: -1.25rem;
+  transform: scaleX(-1);
+}
+
+/* ============================================================
+   COMPOSITE COMPONENTS
+   Ready-to-use styled components combining illustrations
+   ============================================================ */
+
+/* Recipe card with herb corner */
+.recipe-card--illustrated {
+  position: relative;
+  overflow: hidden;
+}
+
+.recipe-card--illustrated::before {
+  content: "";
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 3rem;
+  height: 3rem;
+  background: center / contain no-repeat url('../images/illustrations/herb-sprig-rosemary.svg');
+  color: var(--color-olive);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Tip box with brush divider top */
+.tip-box--illustrated {
+  position: relative;
+  padding-top: var(--space-8);
+}
+
+.tip-box--illustrated::before {
+  content: "";
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-4);
+  right: var(--space-4);
+  height: 1.5rem;
+  background: center / cover no-repeat url('../images/illustrations/brush-divider-olive.svg');
+}
+
+/* Featured recipe badge */
+.recipe-featured {
+  position: relative;
+  padding-top: var(--space-8);
+}
+
+.recipe-featured::before {
+  content: "";
+  position: absolute;
+  top: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3rem;
+  height: 3rem;
+  background: center / contain no-repeat url('../images/illustrations/heirloom-star.svg');
+  color: var(--color-honey);
+  opacity: 0.3;
+}
+
+/* Section header with herb divider */
+.section-header--herb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.section-header--herb::before,
+.section-header--herb::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
+}
+
+.section-header--herb .section-header__herb {
+  width: 3rem;
+  height: 3rem;
+  background: center / contain no-repeat url('../images/illustrations/herb-sprig-thyme.svg');
+  color: var(--color-olive);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   PRINT STYLES
+   Illustrations adapted for print
+   ============================================================ */
+
+@media print {
+  .illustration-herb,
+  .illustration-spoon-fork,
+  .illustration-heirloom {
+    color: #5d6b3f !important; /* olive for print */
+  }
+
+  .divider-brush,
+  hr.brush-divider {
+    background-image: url('../images/illustrations/brush-divider-olive.svg') !important;
+    opacity: 0.6;
+  }
+
+  .torn-paper::before,
+  .torn-paper::after {
+    display: none; /* Hide torn edges in print */
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .illustration-spoon-fork--spin {
+    animation: none;
+  }
+}

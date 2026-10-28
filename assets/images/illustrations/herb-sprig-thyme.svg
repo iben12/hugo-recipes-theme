@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 160" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Main stem -->
+  <path d="M50 150 Q48 110 50 70 Q52 30 50 10" stroke="#5d6b3f" stroke-width="1.8"/>
+  <!-- Small leaves - left -->
+  <g stroke="#5d6b3f" stroke-width="1">
+    <path d="M48 140 L42 145"/>
+    <path d="M47 130 L39 138"/>
+    <path d="M46 120 L37 130"/>
+    <path d="M46 110 L36 122"/>
+    <path d="M47 100 L36 113"/>
+    <path d="M48 90 L37 104"/>
+    <path d="M49 80 L38 95"/>
+    <path d="M50 70 L39 86"/>
+    <path d="M51 60 L40 77"/>
+    <path d="M51 50 L41 68"/>
+    <path d="M51 40 L42 58"/>
+    <path d="M50 30 L42 48"/>
+    <path d="M49 20 L42 38"/>
+  </g>
+  <!-- Small leaves - right -->
+  <g stroke="#5d6b3f" stroke-width="1">
+    <path d="M52 140 L58 145"/>
+    <path d="M53 130 L61 138"/>
+    <path d="M54 120 L63 130"/>
+    <path d="M54 110 L64 122"/>
+    <path d="M53 100 L64 113"/>
+    <path d="M52 90 L63 104"/>
+    <path d="M51 80 L62 95"/>
+    <path d="M50 70 L61 86"/>
+    <path d="M49 60 L60 77"/>
+    <path d="M49 50 L59 68"/>
+    <path d="M50 40 L58 58"/>
+    <path d="M50 30 L58 48"/>
+    <path d="M51 20 L58 38"/>
+  </g>
+</svg>
