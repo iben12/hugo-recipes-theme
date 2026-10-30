@@ -3,8 +3,10 @@
   <article class="recipe">
     <header class="recipe__header">
       <a class="back-link" href="{{ "posts/" | relURL }}">{{ T "back_to_recipes" }}</a>
-      {{ partial "terms.html" (dict "taxonomy" "categories" "page" . "label" (T "categories_aria_label")) }}
-      {{ partial "terms.html" (dict "taxonomy" "tags" "page" . "label" (T "tags_aria_label")) }}
+      <div class="recipe-terms-row">
+        {{ partial "terms.html" (dict "taxonomy" "categories" "page" . "label" (T "categories_aria_label") "showLabel" true) }}
+        {{ partial "terms.html" (dict "taxonomy" "tags" "page" . "label" (T "tags_aria_label") "showLabel" true) }}
+      </div>
       <h1>{{ .Title }}</h1>
       {{ with .Params.headline }}<p class="recipe__headline">{{ . }}</p>{{ end }}
       {{ with .Params.author }}<p class="recipe__author">{{ T "by_author" (dict "Author" .) }}</p>{{ end }}
@@ -38,8 +40,16 @@
       {{ with .Content }}
         <section class="recipe__steps" aria-labelledby="method-heading">
           <p class="eyebrow">{{ T "preparation_eyebrow" }}</p>
-          <h2 id="method-heading">{{ T "preparation" }}</h2>
-          <div class="recipe__instructions">{{ . }}</div>
+          <div class="recipe-steps-header">
+            <h2 id="method-heading">{{ T "preparation" }}</h2>
+            <button
+              class="cooking-mode-toggle"
+              aria-label="{{ T "start_cooking_mode" }}"
+              data-wake-lock-active="{{ T "wake_lock_active" }}"
+              data-wake-lock-inactive="{{ T "wake_lock_inactive" }}"
+            >{{ T "start_cooking" }}</button>
+          </div>
+          <div class="recipe__instructions" data-cooking-steps>{{ . }}</div>
         </section>
       {{ end }}
     </div>

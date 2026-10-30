@@ -30,12 +30,7 @@ title = 'The Sunday Table'
     pageRef = '/categories'
     weight = 30
 
-  [[menus.main]]
-    name = 'Search'
-    identifier = 'menu_search'
-    pageRef = '/search'
-    weight = 40
-
+  
 [module]
   [module.hugoVersion]
     extended = false

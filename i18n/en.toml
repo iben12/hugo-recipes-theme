@@ -128,3 +128,15 @@ other = "{count} recipe found."
 
 [search_results_other]
 other = "{count} recipes found."
+
+[start_cooking]
+other = "Start Cooking"
+
+[start_cooking_mode]
+other = "Start cooking mode"
+
+[wake_lock_active]
+other = "Screen wake lock active"
+
+[wake_lock_inactive]
+other = "Screen wake lock inactive"

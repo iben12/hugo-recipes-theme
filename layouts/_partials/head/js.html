@@ -1,15 +1,16 @@
-{{- with resources.Get "js/main.js" }}
-  {{- $opts := dict
-    "minify" (cond hugo.IsDevelopment false true)
-    "sourceMap" (cond hugo.IsDevelopment "linked" "none")
-  }}
-  {{- with . | js.Build $opts }}
-    {{- if hugo.IsDevelopment }}
-      <script src="{{ .RelPermalink }}"></script>
-    {{- else }}
-      {{- with . | fingerprint }}
-        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
-      {{- end }}
-    {{- end }}
+{{- $opts := dict
+  "minify" (cond hugo.IsDevelopment false true)
+  "sourceMap" (cond hugo.IsDevelopment "linked" "none")
+}}
+
+{{- $main := resources.Get "js/main.js" }}
+{{- $searchToggle := resources.Get "js/search-toggle.js" }}
+{{- $bundle := slice $main $searchToggle | resources.Concat "js/bundle.js" | js.Build $opts }}
+
+{{- if hugo.IsDevelopment }}
+  <script src="{{ $bundle.RelPermalink }}"></script>
+{{- else }}
+  {{- with $bundle | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
   {{- end }}
 {{- end }}

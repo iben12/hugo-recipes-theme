@@ -1,2 +1,6 @@
 <p>{{ T "footer_tagline" }}</p>
 <small>&copy; {{ now.Year }} {{ site.Title }}</small>
+{{ $cookingMode := resources.Get "js/cooking-mode.js" }}
+{{ with $cookingMode }}
+  <script src="{{ .RelPermalink }}" defer></script>
+{{ end }}

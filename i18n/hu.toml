@@ -32,7 +32,7 @@ other = "Minden recept"
 other = "Recipes are coming soon. Check back for something delicious."
 
 [find_your_next_favorite]
-other = "Találd meg a következő kedvenced"
+other = "Találd meg valamelyik kedvenced"
 
 [browse_by_category]
 other = "Kategóriák szerint"
@@ -128,3 +128,15 @@ other = "{count} receptet találtam."
 
 [search_results_other]
 other = "{count} receptet találtam."
+
+[start_cooking]
+other = "Főzés indítása"
+
+[start_cooking_mode]
+other = "Főzési mód indítása"
+
+[wake_lock_active]
+other = "A képernyő ébren tartása aktív"
+
+[wake_lock_inactive]
+other = "A képernyő ébren tartása inaktív"
