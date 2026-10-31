@@ -130,12 +130,54 @@ Cut the vegetables into similar-sized pieces so they cook evenly.
 The tip label is localized through the `tip` entry in the language
 catalogs.
 
+### Step images
+
+Add optional preparation photos inside the numbered list item for the step they
+illustrate. The image's filename does not determine its step; its placement in
+the list does. You can add more than one image to a step:
+
+```md
+1. Season the chicken and place it in the roasting pan.
+   ![Seasoned chicken in the pan](seasoned-chicken.jpg)
+
+2. Add the potatoes around the chicken.
+   ![Potatoes arranged around the chicken](chicken-and-potatoes.jpg)
+   ![The prepared roasting pan](prepared-pan.jpg)
+```
+
+In the normal recipe view, a single image uses the available gallery width.
+Multiple images share equal-width columns on larger screens and stack on small
+screens; images keep their original proportions. In cooking mode, step images
+appear as thumbnails and can be opened larger by clicking or keyboard
+activation. The enlarged image can be dismissed with Escape, its close button,
+or the backdrop.
+
+### Cooking mode
+
+Recipe pages with numbered preparation steps include a **Start Cooking** button.
+Cooking mode presents one step at a time with previous/next controls; the left
+and right arrow keys also navigate steps, and Escape exits the mode. The
+ingredients panel starts open on larger screens and can be toggled. On small
+screens it starts closed and opens as a panel from the **Show Ingredients**
+button.
+
+Cooking mode requests the browser's Screen Wake Lock API to keep the screen
+awake. This depends on browser support and permission; the indicator shows
+whether a lock is currently active. The browser may release the lock when the
+page is hidden, in which case cooking mode requests it again when the page
+becomes visible.
+
 ## Search
 
 The Search page is available from the main navigation at `/search/`. It searches
 recipe titles, headlines, author names, categories, tags, and ingredients. Hugo
 embeds a small index in the generated page; search runs in the browser and
 doesn't require an external service.
+
+The magnifier in the site header opens the search field. Enter submits the
+query to the Search page, and the field's clear control empties it. The close
+button hides the field without clearing its query; opening it again restores
+that query.
 
 ## Languages and translations
 
