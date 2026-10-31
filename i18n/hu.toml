@@ -135,6 +135,9 @@ other = "Főzés indítása"
 [start_cooking_mode]
 other = "Főzési mód indítása"
 
+[scroll_for_more]
+other = "Van tovább, görgess"
+
 [wake_lock_active]
 other = "A képernyő ébren tartása aktív"
 

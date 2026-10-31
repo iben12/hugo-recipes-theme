@@ -10,6 +10,7 @@ function CookingMode() {
   this.isActive = false;
   this.previousFocus = null;
   this.stepView = null;
+  this.scrollHint = null;
   this.stepCounter = null;
   this.ingredientsPanel = null;
   this.ingredientsToggle = null;
@@ -173,6 +174,7 @@ CookingMode.prototype.buildCookingModeUI = function() {
   this.stepView.setAttribute('role', 'region');
   this.stepView.setAttribute('aria-label', 'Current cooking step');
   this.stepView.setAttribute('aria-live', 'polite');
+  this.stepView.addEventListener('scroll', this.updateScrollHint.bind(this), { passive: true });
   this.cookingModeSteps.appendChild(this.stepView);
 
   this.stepImageDialog = document.createElement('dialog');
@@ -213,6 +215,13 @@ CookingMode.prototype.buildCookingModeUI = function() {
     </button>\
   ';
 
+  this.scrollHint = document.createElement('span');
+  this.scrollHint.className = 'cooking-mode__scroll-hint';
+  this.scrollHint.setAttribute('aria-hidden', 'true');
+  const startButton = document.querySelector('.cooking-mode-toggle');
+  this.scrollHint.textContent = startButton ? startButton.dataset.scrollHint : '';
+  this.scrollHint.hidden = true;
+
   // Create ARIA live region for step announcements
   if (!this.liveRegion) {
     this.liveRegion = document.createElement('div');
@@ -236,6 +245,7 @@ CookingMode.prototype.buildCookingModeUI = function() {
   document.body.insertBefore(this.progressBar, document.body.firstChild.nextSibling);
   document.body.insertBefore(this.cookingModePanels, document.body.firstChild.nextSibling.nextSibling);
   document.body.appendChild(this.cookingModeNav);
+  document.body.appendChild(this.scrollHint);
   document.body.appendChild(this.stepImageDialog);
 
   // Cache references to UI elements
@@ -322,6 +332,10 @@ CookingMode.prototype.removeCookingModeUI = function() {
     this.cookingModeNav.remove();
     this.cookingModeNav = null;
   }
+  if (this.scrollHint) {
+    this.scrollHint.remove();
+    this.scrollHint = null;
+  }
   if (this.stepImageDialog) {
     this.stepImageDialog.remove();
     this.stepImageDialog = null;
@@ -376,6 +390,9 @@ CookingMode.prototype.goToStep = function(n) {
     this.stepView.appendChild(imageList);
   }
 
+  this.stepView.scrollTop = 0;
+  this.updateScrollHint();
+
   // Update step counter
   if (this.stepCounter) {
     this.stepCounter.textContent = (n + 1) + ' / ' + this.steps.length;
@@ -410,6 +427,13 @@ CookingMode.prototype.goToStep = function(n) {
   // Focus the step view for keyboard navigation
   this.stepView.setAttribute('tabindex', '-1');
   this.stepView.focus();
+};
+
+CookingMode.prototype.updateScrollHint = function() {
+  if (!this.stepView || !this.scrollHint) return;
+
+  const hasOverflow = this.stepView.scrollHeight > this.stepView.clientHeight + 1;
+  this.scrollHint.hidden = !hasOverflow || this.stepView.scrollTop > 8;
 };
 
 CookingMode.prototype.next = function() {

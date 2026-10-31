@@ -135,6 +135,9 @@ other = "Start Cooking"
 [start_cooking_mode]
 other = "Start cooking mode"
 
+[scroll_for_more]
+other = "Scroll for more"
+
 [wake_lock_active]
 other = "Screen wake lock active"
 
