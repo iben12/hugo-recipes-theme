@@ -26,6 +26,8 @@ function CookingMode() {
   this.cookingModeSteps = null;
   this.cookingModeNav = null;
   this.wakeLockIndicator = null;
+  this.stepImageDialog = null;
+  this.stepImageDialogImage = null;
 }
 
 CookingMode.prototype.init = function() {
@@ -40,16 +42,32 @@ CookingMode.prototype.parseSteps = function() {
     return;
   }
 
-  // Find all <li> elements inside ordered lists within the container
-  // This works with both plain markdown output and enhanced templates
-  const stepElements = container.querySelectorAll('ol li');
-  this.steps = Array.from(stepElements).map(function(element, index) {
-    return {
-      index: index,
-      element: element,
-      html: element.innerHTML
-    };
-  });
+  this.steps = [];
+  Array.from(container.querySelectorAll('ol')).forEach(function(list) {
+    const imageParagraph = list.nextElementSibling;
+    const images = imageParagraph && imageParagraph.tagName === 'P'
+      ? Array.from(imageParagraph.querySelectorAll('img')).map(function(image) {
+        return {
+          src: image.getAttribute('src'),
+          alt: image.getAttribute('alt') || ''
+        };
+      }).filter(function(image) {
+        return image.src;
+      })
+      : [];
+    const stepElements = Array.from(list.children).filter(function(element) {
+      return element.tagName === 'LI';
+    });
+
+    stepElements.forEach(function(element, index) {
+      this.steps.push({
+        index: this.steps.length,
+        element: element,
+        html: element.innerHTML,
+        images: index === stepElements.length - 1 ? images : []
+      });
+    }, this);
+  }, this);
 };
 
 CookingMode.prototype.buildCookingModeUI = function() {
@@ -121,6 +139,20 @@ CookingMode.prototype.buildCookingModeUI = function() {
   this.stepView.setAttribute('aria-live', 'polite');
   this.cookingModeSteps.appendChild(this.stepView);
 
+  this.stepImageDialog = document.createElement('dialog');
+  this.stepImageDialog.className = 'cooking-mode__image-dialog';
+  this.stepImageDialog.setAttribute('aria-label', 'Enlarged step image');
+
+  const dialogClose = document.createElement('button');
+  dialogClose.className = 'cooking-mode__image-dialog-close';
+  dialogClose.type = 'button';
+  dialogClose.setAttribute('aria-label', 'Close enlarged image');
+  dialogClose.textContent = '×';
+  this.stepImageDialogImage = document.createElement('img');
+  this.stepImageDialogImage.className = 'cooking-mode__image-dialog-image';
+  this.stepImageDialog.appendChild(dialogClose);
+  this.stepImageDialog.appendChild(this.stepImageDialogImage);
+
   // Create panels container
   this.cookingModePanels = document.createElement('div');
   this.cookingModePanels.className = 'cooking-mode__panels';
@@ -168,6 +200,7 @@ CookingMode.prototype.buildCookingModeUI = function() {
   document.body.insertBefore(this.progressBar, document.body.firstChild.nextSibling);
   document.body.insertBefore(this.cookingModePanels, document.body.firstChild.nextSibling.nextSibling);
   document.body.appendChild(this.cookingModeNav);
+  document.body.appendChild(this.stepImageDialog);
 
   // Cache references to UI elements
   this.stepCounter = this.cookingModeBar.querySelector('.cooking-mode__counter');
@@ -207,6 +240,33 @@ CookingMode.prototype.bindCookingModeEvents = function() {
   if (ingredientsClose) {
     ingredientsClose.addEventListener('click', this.toggleIngredients.bind(this));
   }
+
+  const dialogClose = this.stepImageDialog.querySelector('.cooking-mode__image-dialog-close');
+  dialogClose.addEventListener('click', function() {
+    this.stepImageDialog.close();
+  }.bind(this));
+
+  this.stepImageDialog.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      this.stepImageDialog.close();
+    }
+  }.bind(this));
+
+  this.stepImageDialog.addEventListener('click', function(event) {
+    if (event.target === this.stepImageDialog) {
+      this.stepImageDialog.close();
+    }
+  }.bind(this));
+
+  this.stepView.addEventListener('click', function(event) {
+    const imageButton = event.target.closest('.cooking-mode__step-image');
+    if (!imageButton) return;
+
+    this.stepImageDialogImage.src = imageButton.dataset.imageSrc;
+    this.stepImageDialogImage.alt = imageButton.dataset.imageAlt;
+    this.stepImageDialog.showModal();
+  }.bind(this));
 };
 
 CookingMode.prototype.removeCookingModeUI = function() {
@@ -225,6 +285,11 @@ CookingMode.prototype.removeCookingModeUI = function() {
   if (this.cookingModeNav) {
     this.cookingModeNav.remove();
     this.cookingModeNav = null;
+  }
+  if (this.stepImageDialog) {
+    this.stepImageDialog.remove();
+    this.stepImageDialog = null;
+    this.stepImageDialogImage = null;
   }
   this.cookingModeIngredients = null;
   this.cookingModeSteps = null;
@@ -251,6 +316,29 @@ CookingMode.prototype.goToStep = function(n) {
   stepContent.className = 'cooking-mode__step-content';
   stepContent.innerHTML = step.html;
   this.stepView.appendChild(stepContent);
+
+  if (step.images.length > 0) {
+    const imageList = document.createElement('div');
+    imageList.className = 'cooking-mode__step-images';
+
+    step.images.forEach(function(image) {
+      const imageButton = document.createElement('button');
+      imageButton.className = 'cooking-mode__step-image';
+      imageButton.type = 'button';
+      imageButton.dataset.imageSrc = image.src;
+      imageButton.dataset.imageAlt = image.alt || 'Step ' + (n + 1) + ' image';
+      imageButton.setAttribute('aria-label', 'Enlarge image for step ' + (n + 1));
+
+      const thumbnail = document.createElement('img');
+      thumbnail.src = image.src;
+      thumbnail.alt = '';
+      thumbnail.loading = 'lazy';
+      imageButton.appendChild(thumbnail);
+      imageList.appendChild(imageButton);
+    });
+
+    this.stepView.appendChild(imageList);
+  }
 
   // Update step counter
   if (this.stepCounter) {
@@ -513,6 +601,9 @@ CookingMode.prototype.handleKeydown = function(e) {
       this.prev();
       break;
     case 'Escape':
+      if (e.defaultPrevented || (this.stepImageDialog && this.stepImageDialog.open)) {
+        return;
+      }
       e.preventDefault();
       this.exit();
       break;

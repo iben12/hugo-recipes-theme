@@ -1046,6 +1046,93 @@ h2 {
   margin-bottom: 0;
 }
 
+.cooking-mode__step-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.cooking-mode__step-image {
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  cursor: zoom-in;
+  overflow: hidden;
+  padding: 0;
+  transition: box-shadow 150ms ease, transform 150ms ease;
+}
+
+.cooking-mode__step-image:hover {
+  box-shadow: 0 6px 20px rgb(48 39 23 / 18%);
+  transform: translateY(-2px);
+}
+
+.cooking-mode__step-image:focus-visible {
+  outline: 3px solid var(--tomato);
+  outline-offset: 3px;
+}
+
+.cooking-mode__step-image img {
+  display: block;
+  width: clamp(120px, 22vw, 220px);
+  height: clamp(90px, 15vw, 150px);
+  object-fit: cover;
+}
+
+.cooking-mode__image-dialog {
+  position: fixed;
+  inset: 0;
+  width: fit-content;
+  height: fit-content;
+  max-width: 94vw;
+  max-height: 92vh;
+  overflow: visible;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.cooking-mode__image-dialog::backdrop {
+  background: rgb(24 22 18 / 82%);
+}
+
+.cooking-mode__image-dialog-image {
+  display: block;
+  max-width: 94vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgb(0 0 0 / 30%);
+}
+
+.cooking-mode__image-dialog-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 55%);
+  border-radius: 50%;
+  background: rgb(24 22 18 / 70%);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.cooking-mode__image-dialog-close:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
 .cooking-mode__step-tip {
   background: #f2ede1;
   border-left: 4px solid var(--tomato);
