@@ -596,6 +596,27 @@ h2 {
   padding-left: 0.55rem;
 }
 
+.recipe-step-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin: 1rem auto;
+  max-width: 640px;
+  width: 100%;
+}
+
+.recipe-step-gallery--multiple {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.recipe-step-gallery img {
+  display: block;
+  height: auto;
+  margin: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
 .recipe__steps li::marker {
   color: var(--tomato);
   font-family: var(--serif);
@@ -737,6 +758,10 @@ h2 {
 @media (max-width: 520px) {
   .recipe-grid {
     grid-template-columns: 1fr;
+  }
+
+  .recipe-step-gallery--multiple {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .recipe__ingredients li,

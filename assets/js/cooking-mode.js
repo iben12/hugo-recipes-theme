@@ -44,27 +44,63 @@ CookingMode.prototype.parseSteps = function() {
 
   this.steps = [];
   Array.from(container.querySelectorAll('ol')).forEach(function(list) {
-    const imageParagraph = list.nextElementSibling;
-    const images = imageParagraph && imageParagraph.tagName === 'P'
-      ? Array.from(imageParagraph.querySelectorAll('img')).map(function(image) {
+    const stepElements = Array.from(list.children).filter(function(element) {
+      return element.tagName === 'LI';
+    });
+
+    stepElements.forEach(function(element) {
+      const sourceImages = Array.from(element.querySelectorAll('img'));
+      const images = sourceImages.map(function(image) {
         return {
           src: image.getAttribute('src'),
           alt: image.getAttribute('alt') || ''
         };
       }).filter(function(image) {
         return image.src;
-      })
-      : [];
-    const stepElements = Array.from(list.children).filter(function(element) {
-      return element.tagName === 'LI';
-    });
+      });
 
-    stepElements.forEach(function(element, index) {
+      if (images.length > 0) {
+        const imageParagraphs = Array.from(new Set(sourceImages.map(function(image) {
+          return image.closest('p');
+        }).filter(Boolean)));
+        const gallery = document.createElement('div');
+        gallery.className = 'recipe-step-gallery';
+        if (images.length > 1) {
+          gallery.classList.add('recipe-step-gallery--multiple');
+        }
+
+        sourceImages.forEach(function(image) {
+          image.remove();
+          gallery.appendChild(image);
+        });
+
+        imageParagraphs.forEach(function(paragraph) {
+          if (!paragraph.textContent.trim() && !paragraph.querySelector('img')) {
+            paragraph.remove();
+          }
+        });
+
+        const lastImageParagraph = imageParagraphs[imageParagraphs.length - 1];
+        if (lastImageParagraph && lastImageParagraph.parentElement === element) {
+          lastImageParagraph.after(gallery);
+        } else {
+          element.appendChild(gallery);
+        }
+      }
+
+      const stepContent = element.cloneNode(true);
+      stepContent.querySelectorAll('img').forEach(function(image) {
+        image.remove();
+      });
+      stepContent.querySelectorAll('.recipe-step-gallery').forEach(function(gallery) {
+        gallery.remove();
+      });
+
       this.steps.push({
         index: this.steps.length,
         element: element,
-        html: element.innerHTML,
-        images: index === stepElements.length - 1 ? images : []
+        html: stepContent.innerHTML,
+        images: images
       });
     }, this);
   }, this);

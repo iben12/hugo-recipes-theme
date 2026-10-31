@@ -22,15 +22,12 @@ ingredients = [
 +++
 
 1. Heat the oven to 200°C / 400°F. Pat the chicken dry and season it generously inside and out.
-
 ![](step1.jpeg)
 
 2. Put half the herbs, the lemon halves, and garlic inside the cavity. Rub the skin with olive oil and scatter the remaining herbs over the chicken and potatoes.
-
 ![](step2.jpeg)
 
 3. Arrange the potatoes in a roasting pan and sit the chicken on top. Roast for 1 hour 15 minutes, turning the potatoes once, until the chicken is deeply golden and cooked through.
-
 ![](step3.jpeg)
 ![](step3b.jpeg)
 
